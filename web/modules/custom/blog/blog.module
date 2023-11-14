@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Blog module.
+ */
+
+ function blog_theme() {
+    return [
+        'index' => [
+            'template' => 'index',
+            'variables' => [
+              'data' => [],
+            ],
+          ],
+          'carousel' => [
+            'template'=> 'carousel',
+            'variables' => [
+              'data' => [],
+            ],
+          ]
+        ];
+ }

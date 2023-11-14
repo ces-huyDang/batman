@@ -1,0 +1,23 @@
+blog.index:
+  path: '/blogs'
+  defaults:
+    _title: 'Blogs Index'
+    _controller: '\Drupal\blog\Controller\BlogController::index'
+  requirements:
+    _permission: 'access content'
+    
+blog.charaters:
+  path: '/characters'
+  defaults:
+    _title: 'Characters'
+    _controller: '\Drupal\blog\Controller\BlogController::characters'
+  requirements:
+    _permission: 'access content'
+
+blog.carousel:
+  path: '/car'
+  defaults:
+    _title: 'Carousel'
+    _controller: '\Drupal\blog\Controller\BlogController::carousel'
+  requirements:
+    _permission: 'access content'

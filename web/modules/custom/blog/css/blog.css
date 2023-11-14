@@ -1,0 +1,11 @@
+.author {
+  font-size: small;
+}
+
+.highlight {
+  box-shadow: inset;
+}
+
+.animated-class {
+  color: red;
+}
