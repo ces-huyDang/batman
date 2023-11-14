@@ -1,0 +1,54 @@
+<div id="score" class="card">
+  <div class="card-body">
+    <h3>
+      Score
+    </h3>
+    <hr>
+    <div id="user-score" class="row">
+      <div class="col-9">
+        <span class="font-mono">
+          USER SCORE
+        </span>
+        <br>
+        <span class="fw-medium">Average</span>
+        <br>
+        <span class="text-decoration-underline">Based on
+          <span id="voted-users"></span>
+          User Ratings</span>
+      </div>
+      <div class="col-3">
+        <div id="square" class="square row">
+          <div class="score pt-2 text-center col-12">
+            <span id="average-score"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div id="my-score" class="row" class="my-score">
+      <div class="col-9">
+        <span class="font-mono">
+          MY SCORE
+        </span>
+        <br>
+        <span id="noti" class="fw-medium my-score">Hover and click to give a rating</span>
+        <br>
+        <div class="my-score" id="rating-btn">
+          <div id="btn-group" class="btn-group" role="group">
+            {% for i in 0..10 %}
+              {% if i <= 3 %}
+                <button id={{ i }} type="button" class="rate-btn btn btn-outline-danger"></button>
+              {% elseif i > 3 and i <=6 %}
+                <button id={{ i }} type="button" class="rate-btn btn btn-outline-warning"></button>
+              {% else %}
+                <button id={{ i }} type="button" class="rate-btn btn btn-outline-success"></button>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div id="rating-score" class="col-3"></div>
+      <div id="confirm-btn"></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+name: drupal10-blog
+recipe: drupal10
+config:
+  webroot: web
+services:
+  appserver:
+    xdebug: true
+    config:
+      php: xdebug.ini
+  phpmyadmin:
+    type: phpmyadmin
+    overrides:
+      environment:
+        UPLOAD_LIMIT: 25600000
+    hosts:
+      - database
+proxy:
+  phpmyadmin:
+    - db-blog.lndo.site
