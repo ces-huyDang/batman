@@ -1,0 +1,8 @@
+# Schema for the configuration files of the Lando Blog theme.
+lando_blog.settings:
+  type: theme_settings
+  label: 'Lando Blog settings'
+  mapping:
+    example:
+      type: string
+      label: Example

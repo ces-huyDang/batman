@@ -1,0 +1,69 @@
+uuid: a7cfaaeb-7799-4c5d-b853-d0aafb054add
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.list_
+    - field.field.node.posts.body
+    - field.field.node.posts.field_average_score
+    - field.field.node.posts.field_is_featured
+    - field.field.node.posts.field_meta_score
+    - field.field.node.posts.field_ra
+    - field.field.node.posts.field_thumbnail_image
+    - field.field.node.posts.field_users_score
+    - node.type.posts
+  module:
+    - fivestar
+    - text
+    - user
+id: node.posts.list_
+targetEntityType: node
+bundle: posts
+mode: list_
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_is_featured:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_ra:
+    type: fivestar_stars
+    label: above
+    settings:
+      text_format: average
+      display_format: average
+      fivestar_widget: basic
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_thumbnail_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_average_score: true
+  field_meta_score: true
+  field_users_score: true
+  langcode: true

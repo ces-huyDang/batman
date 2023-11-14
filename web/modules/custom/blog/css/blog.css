@@ -1,0 +1,34 @@
+.author {
+  font-size: small;
+}
+
+.highlight {
+  box-shadow: inset;
+}
+
+.animated-class {
+  color: red;
+}
+
+.font-mono {
+  font-family: monospace;
+  font-size: smaller;
+}
+
+.square {
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.circle {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  position: relative;
+}
+
+.score {
+  font-size: xx-large;
+  color: white;
+}

@@ -1,0 +1,81 @@
+label: 'Bình luận'
+display:
+  default:
+    display_title: 'Mặc định'
+    display_options:
+      title: 'Bình luận'
+      fields:
+        comment_bulk_form:
+          action_title: 'Thao tác'
+        subject:
+          label: 'Tiêu đề'
+        name:
+          label: 'Tác giả'
+        entity_id:
+          label: 'Đã gửi bài trong'
+        changed:
+          label: 'Đã cập nhật'
+        operations:
+          label: 'Thao tác'
+      pager:
+        options:
+          tags:
+            next: 'sau ›'
+            previous: '‹ trước'
+            first: '« đầu'
+            last: 'cuối »'
+          expose:
+            items_per_page_label: 'Số mục trên một trang'
+            items_per_page_options_all_label: '- Tất cả -'
+            offset_label: 'Độ dịch'
+      exposed_form:
+        options:
+          submit_button: Lọc
+          reset_button_label: 'Thiết lập lại'
+          exposed_sorts_label: 'Sắp xếp theo'
+          sort_asc_label: 'Tăng dần'
+          sort_desc_label: 'Giảm dần'
+      empty:
+        area_text_custom:
+          content: 'Không có bài bình luận nào.'
+      filters:
+        subject:
+          expose:
+            label: 'Tiêu đề'
+        combine:
+          expose:
+            label: 'Tên tác giả'
+        langcode:
+          expose:
+            label: 'Ngôn ngữ'
+      use_more_text: thêm
+  page_published:
+    display_title: 'Các bình luận đã được đăng'
+    display_options:
+      menu:
+        title: 'Bình luận'
+  page_unapproved:
+    display_title: 'Các bình luận chưa xét duyệt'
+    display_options:
+      fields:
+        comment_bulk_form:
+          action_title: 'Thao tác'
+        subject:
+          label: 'Tiêu đề'
+        name:
+          label: 'Tác giả'
+        entity_id:
+          label: 'Đã gửi bài trong'
+        changed:
+          label: 'Đã cập nhật'
+        operations:
+          label: 'Thao tác'
+      filters:
+        subject:
+          expose:
+            label: 'Tiêu đề'
+        langcode:
+          expose:
+            label: 'Ngôn ngữ'
+      menu:
+        title: 'Các bình luận chưa xét duyệt'

@@ -1,0 +1,30 @@
+uuid: 21600df9-7ddb-4371-ba56-5c4bef869a4b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.meta_score.field_score_meta
+    - field.field.paragraph.meta_score.field_voted_users_meta
+    - paragraphs.paragraphs_type.meta_score
+id: paragraph.meta_score.default
+targetEntityType: paragraph
+bundle: meta_score
+mode: default
+content:
+  field_score_meta:
+    type: number
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_voted_users_meta:
+    type: number
+    weight: 2
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

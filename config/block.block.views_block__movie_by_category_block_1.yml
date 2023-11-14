@@ -1,0 +1,29 @@
+uuid: 7b5446f6-74f8-4097-87eb-1b2d8eac913c
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.movie_by_category
+  module:
+    - system
+    - views
+  theme:
+    - lando_blog
+id: views_block__movie_by_category_block_1
+theme: lando_blog
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'views_block:movie_by_category-block_1'
+settings:
+  id: 'views_block:movie_by_category-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /homepage

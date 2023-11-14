@@ -1,0 +1,16 @@
+uuid: 8444552f-a6dc-40c6-bb8b-b602d1b7d1b9
+langcode: en
+status: true
+dependencies: {  }
+id: config_test
+label: 'Config Test'
+description: ''
+weight: 0
+stackable: false
+no_patching: false
+storage: folder
+folder: config_test
+module: {  }
+theme: {  }
+complete_list: {  }
+partial_list: {  }

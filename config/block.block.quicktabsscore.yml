@@ -1,0 +1,34 @@
+uuid: d58c7feb-db51-48ed-8321-214c7ea17a40
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - quicktabs
+    - system
+  theme:
+    - lando_blog
+id: quicktabsscore
+theme: lando_blog
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'quicktabs_block:score'
+settings:
+  id: 'quicktabs_block:score'
+  label: 'Current Movie Releases'
+  label_display: visible
+  provider: quicktabs
+visibility:
+  language:
+    id: language
+    negate: false
+    context_mapping:
+      language: '@language.current_language_context:language_interface'
+    langcodes:
+      en: en
+      vi: vi
+  request_path:
+    id: request_path
+    negate: false
+    pages: /homepage

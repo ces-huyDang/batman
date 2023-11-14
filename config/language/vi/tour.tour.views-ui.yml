@@ -1,0 +1,9 @@
+tips:
+  views-ui-format:
+    label: 'Định dạng xuất'
+  views-ui-fields:
+    label: 'Các trường'
+  views-ui-sorts:
+    label: 'Tiêu chuẩn sắp xếp'
+  views-ui-preview:
+    label: 'Xem trước'

@@ -1,0 +1,16 @@
+uuid: f847431e-4bf4-4843-9644-5d2c8a02b483
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.streaming_site
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.streaming_site
+target_entity_type_id: taxonomy_term
+target_bundle: streaming_site
+default_langcode: site_default
+language_alterable: true

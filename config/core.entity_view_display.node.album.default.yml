@@ -1,0 +1,30 @@
+uuid: 5eee8eb6-ef05-4d80-8834-25c3cf8e5b67
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.album.field_album_images
+    - node.type.album
+  module:
+    - user
+id: node.album.default
+targetEntityType: node
+bundle: album
+mode: default
+content:
+  field_album_images:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

@@ -1,0 +1,22 @@
+uuid: 2f22926e-2450-4424-9b3f-912ae0b9a41a
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - lando_blog
+_core:
+  default_config_hash: eYL19CLDyinGTWYQfBD1DswWzglEotE_kHnHx3AxTXM
+id: lando_blog_powered
+theme: lando_blog
+region: footer
+weight: -5
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

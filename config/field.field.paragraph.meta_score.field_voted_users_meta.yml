@@ -1,0 +1,23 @@
+uuid: cec852d1-a28b-4854-8516-8839fe5730cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_voted_users_meta
+    - paragraphs.paragraphs_type.meta_score
+id: paragraph.meta_score.field_voted_users_meta
+field_name: field_voted_users_meta
+entity_type: paragraph
+bundle: meta_score
+label: 'Voted Users'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,23 @@
+uuid: 4e35642e-be4a-436d-991f-a41afd467f23
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_score_meta
+    - paragraphs.paragraphs_type.meta_score
+id: paragraph.meta_score.field_score_meta
+field_name: field_score_meta
+entity_type: paragraph
+bundle: meta_score
+label: 'Meta Score'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

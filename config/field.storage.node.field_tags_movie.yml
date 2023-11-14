@@ -1,0 +1,20 @@
+uuid: 0279241c-3ff1-41fb-96ab-3ea70b1a860e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_tags_movie
+field_name: field_tags_movie
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 10
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

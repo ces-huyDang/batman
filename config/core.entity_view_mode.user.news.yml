@@ -1,0 +1,10 @@
+uuid: 9a53a373-67e5-45f5-84d5-4bb436cee0d5
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.news
+label: News
+targetEntityType: user
+cache: true

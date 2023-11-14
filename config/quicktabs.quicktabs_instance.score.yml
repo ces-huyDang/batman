@@ -1,0 +1,65 @@
+uuid: 8d3cedcc-c16b-4d71-aa1e-d151875a4fad
+langcode: en
+status: true
+dependencies: {  }
+id: score
+label: Score
+renderer: quick_tabs
+hide_empty_tabs: false
+default_tab: 9999
+options:
+  quick_tabs:
+    ajax: false
+    class: ''
+    style: tabsbar
+  accordion_tabs:
+    jquery_ui:
+      collapsible: false
+      heightStyle: auto
+configuration_data:
+  -
+    title: 'Meta Score'
+    weight: 0
+    type: block_content
+    content:
+      block_content:
+        options:
+          bid: meta_score_block
+          block_title: ''
+          display_title: false
+      view_content:
+        options:
+          vid: block_content
+          display: default
+          args: ''
+      node_content:
+        options:
+          nid: ''
+          view_mode: full
+          hide_title: true
+      qtabs_content:
+        options:
+          machine_name: ''
+  -
+    title: 'Average Score'
+    weight: 0
+    type: block_content
+    content:
+      block_content:
+        options:
+          bid: average_score_block
+          block_title: ''
+          display_title: false
+      view_content:
+        options:
+          vid: block_content
+          display: default
+          args: ''
+      node_content:
+        options:
+          nid: ''
+          view_mode: full
+          hide_title: true
+      qtabs_content:
+        options:
+          machine_name: ''

@@ -1,0 +1,10 @@
+uuid: cf6a871e-c224-478d-931c-2bb2a2bec809
+langcode: en
+status: true
+dependencies: {  }
+id: meta_score
+label: 'Meta Score'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

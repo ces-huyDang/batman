@@ -1,0 +1,23 @@
+uuid: 73f846af-6686-44e5-bcaf-96220f9752b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_user_score
+    - paragraphs.paragraphs_type.user_score
+id: paragraph.user_score.field_user_score
+field_name: field_user_score
+entity_type: paragraph
+bundle: user_score
+label: Score
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0.0
+  max: 10.0
+  prefix: ''
+  suffix: ''
+field_type: float

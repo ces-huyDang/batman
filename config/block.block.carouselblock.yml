@@ -1,0 +1,34 @@
+uuid: 05d2a499-13bf-44b1-9ae4-ef7b71c78a3f
+langcode: en
+status: true
+dependencies:
+  module:
+    - blog
+    - language
+    - system
+  theme:
+    - lando_blog
+id: carouselblock
+theme: lando_blog
+region: featured
+weight: -4
+provider: null
+plugin: carousel_block
+settings:
+  id: carousel_block
+  label: 'Carousel Block'
+  label_display: '0'
+  provider: blog
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /homepage
+  language:
+    id: language
+    negate: false
+    context_mapping:
+      language: '@language.current_language_context:language_interface'
+    langcodes:
+      en: en
+      vi: vi
