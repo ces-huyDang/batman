@@ -1,0 +1,55 @@
+blog.index:
+  path: '/hp'
+  defaults:
+    _title: 'Blogs Index'
+    _controller: '\Drupal\blog\Controller\BlogController::blogs'
+  requirements:
+    _permission: 'access content'
+    
+blog.charaters:
+  path: '/characters'
+  defaults:
+    _title: 'Characters'
+    _controller: '\Drupal\blog\Controller\BlogController::characters'
+  requirements:
+    _permission: 'access content'
+
+blog.carousel:
+  path: '/carousel'
+  defaults:
+    _title: 'Carousel'
+    _controller: '\Drupal\blog\Controller\BlogController::carousel'
+  requirements:
+    _permission: 'access content'
+
+blog.details:
+  path: '/blog/{nid}'
+  defaults:
+    _title: 'Blog detail'
+    _controller: '\Drupal\blog\Controller\BlogController::details'
+  requirements:
+    _permission: 'access content'
+
+blog.score:
+  path: '/score/{nid}'
+  defaults:
+    _title: 'Post score'
+    _controller: '\Drupal\blog\Controller\BlogController::score'
+  requirements:
+    _permission: 'access content'
+
+blog.current_user:
+  path: '/current-user'
+  defaults:
+    _title: 'Current User'
+    _controller: '\Drupal\blog\Controller\BlogController::currentUser'
+  requirements:
+    _permission: 'access content'
+
+blog.rating:
+  path: '/rate/{score_info}'
+  defaults:
+    _title: 'Score Rating'
+    _controller: '\Drupal\blog\Controller\BlogController::rate'
+  requirements:
+    _permission: 'access content'
