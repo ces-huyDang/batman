@@ -9,3 +9,4 @@ blog:
     component:
       css/blog.css: {}
       css/carousel.css: {}
+      css/normalize.css: {}

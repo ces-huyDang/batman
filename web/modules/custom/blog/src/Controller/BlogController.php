@@ -104,15 +104,7 @@ class BlogController extends ControllerBase
      */
     public function carousel()
     {
-        $images = $this->blog_service->getCarouselImagesUri();
-        return [
-        '#theme' => 'carousel',
-        '#data' => [
-          'images' => $images
-          ],
-        '#attached' => [
-        'library' => ['blog/blog'],
-        ],
-        ];
+        $images = $this->blog_service->getCarouselImagesUrl();
+        return new JsonResponse($images);
     }
 }

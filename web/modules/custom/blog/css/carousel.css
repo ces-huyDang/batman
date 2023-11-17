@@ -1,11 +1,32 @@
-.carousel {
+#carousel {
   overflow: hidden;
-  width: 300px; /* Adjust the width as needed */
+  white-space: nowrap;
 }
 
-.carousel-item {
-  float: left;
-  width: 100%;
-  box-sizing: border-box;
-  transition: transform 0.5s ease; /* Add a smooth transition effect */
+.slide-image {
+  background-position: center;
+  background-size: cover;
+  display: inline-block;
+}
+
+.slide-image>img {
+  width: 1850px;
+  height: 374px;
+  object-fit: cover;
+}
+
+.w-95 {
+  width: 95%;
+}
+
+.start-5 {
+  left: 2.5%;
+}
+
+.mb-22 {
+  margin-bottom: 22.4rem;
+}
+
+#left-arrow, #right-arrow {
+  border: solid 2px white;
 }

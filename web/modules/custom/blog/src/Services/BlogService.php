@@ -72,32 +72,42 @@ class BlogService
     }
 
     /**
-     * Get the images URI by Id
+     * Get the images src by Id (URI/URL)
      *
-     * @param array $field_images field images of an Entity.
+     * @param array  $field_images field images of an Entity.
+     * @param string $src_type     "uri" or "url
      *
-     * @return array $images_uri.
+     * @return array $images_src.
      */
-    public function getImagesUri($field_images)
+    public function getImagesSrc($field_images, $src_type)
     {
-        $images_uri = [];
+        if ($src_type !== "url" && $src_type !== "uri") { 
+            return [];
+        }
+            $images_src = [];
         foreach ($field_images as $field_image) {
             $media = Media::load($field_image['target_id']);
             $fid = $media->getSource()->getSourceFieldValue($media);
             $file = File::load($fid);
             $image_uri = $file->getFileUri();
-            array_push($images_uri, $image_uri);
+            $image_url = \Drupal::service('file_url_generator')
+            ->generateAbsoluteString($image_uri);
+            if ($src_type === "uri") {
+                array_push($images_src, $image_uri); 
+            } else {
+                array_push($images_src, $image_url); 
+            }
         }
-        return $images_uri;
+            return $images_src;
     }
 
-        /**
-         * Create a new array contains all needed Posts information.
-         *
-         * @param array $nodes nodes of Content type: Posts.
-         *
-         * @return array information of Posts.
-         */
+    /**
+     * Create a new array contains all needed Posts information.
+     *
+     * @param array $nodes nodes of Content type: Posts.
+     *
+     * @return array information of Posts.
+     */
     public function getPostsInfo($nodes)
     {
         $posts_list = [];
@@ -108,7 +118,7 @@ class BlogService
             $node_created = $node->getCreatedTime();
             $node_changed = $node->get('changed')->getValue()[0]['value'];
             $node_body = $node->get('body')->getValue()[0]['value'];
-            $node_thumbnail_uri = $this->getImagesUri($node->get('field_thumbnail_image')->getValue());
+            $node_thumbnail_uri = $this->getImagesSrc($node->get('field_thumbnail_image')->getValue(), "uri");
             $node_uid = $node->get('uid')->getValue()[0]['target_id'];
             $node_is_featured = $node->get('field_is_featured')->getValue()[0]['value'];
             $node_user = User::load($node_uid);
@@ -148,13 +158,13 @@ class BlogService
         return $terms_info;
     }
 
-     /**
-      * Create a new array contains all needed Terms information.
-      *
-      * @param array $terms terms from db
-      *
-      * @return array information of Terms.
-      */
+    /**
+     * Create a new array contains all needed Terms information.
+     *
+     * @param array $terms terms from db
+     *
+     * @return array information of Terms.
+     */
     public function getTermsInfo($terms)
     {
         $terms_list = [];
@@ -174,14 +184,21 @@ class BlogService
      *
      * @return array information of Terms.
      */
-    public function getCarouselImagesUri()
+    public function getCarouselImagesUrl()
     {
         $content = $this->getAllContentByType('carousel_images');
         $album_id = (array_values($content)[0])
             ->get('field_carousel_images')->getValue()[0]['target_id'];
         $album = Node::load($album_id);
         $album_images = $album->get('field_album_images')->getValue();
-        $image_uri = $this->getImagesUri($album_images);
-        return $image_uri;
+        $images_url = $this->getImagesSrc($album_images, "url");
+        $carousel_images_url = [];
+        foreach ($images_url as $index => $image_url) {
+            $carousel_image = [];
+            $carousel_image['id'] = $index;
+            $carousel_image['url'] = $image_url;
+            array_push($carousel_images_url, $carousel_image);
+        }
+        return $carousel_images_url;
     }
 }

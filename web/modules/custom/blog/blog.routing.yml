@@ -15,7 +15,7 @@ blog.charaters:
     _permission: 'access content'
 
 blog.carousel:
-  path: '/car'
+  path: '/carousel'
   defaults:
     _title: 'Carousel'
     _controller: '\Drupal\blog\Controller\BlogController::carousel'
