@@ -7,17 +7,29 @@
 
  function blog_theme() {
     return [
-        'index' => [
-            'template' => 'index',
+        'blogs' => [
+            'template' => 'blogs',
             'variables' => [
               'data' => [],
             ],
           ],
-          'carousel' => [
+        'carousel' => [
             'template'=> 'carousel',
             'variables' => [
               'data' => [],
             ],
+          ],
+        'score' => [
+            'template'=> 'score',
+            'variables' => [
+              'data' => [],
+            ],
+          ],
+        'post-details' => [
+            'template'=> 'post-details',
+            'variables' => [
+              'data' => [],
+            ],
           ]
-        ];
+        ];       
  }

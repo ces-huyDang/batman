@@ -5,6 +5,7 @@ blog:
     js/scroll-animation.js: {}
     js/characters-dropdown-menu.js: {}
     js/batman-carousel.js: {}
+    js/rating-score.js: {}
   css:
     component:
       css/blog.css: {}

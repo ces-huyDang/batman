@@ -1,8 +1,8 @@
 blog.index:
-  path: '/blogs'
+  path: '/hp'
   defaults:
     _title: 'Blogs Index'
-    _controller: '\Drupal\blog\Controller\BlogController::index'
+    _controller: '\Drupal\blog\Controller\BlogController::blogs'
   requirements:
     _permission: 'access content'
     
@@ -19,5 +19,21 @@ blog.carousel:
   defaults:
     _title: 'Carousel'
     _controller: '\Drupal\blog\Controller\BlogController::carousel'
+  requirements:
+    _permission: 'access content'
+
+blog.details:
+  path: '/blog/{nid}'
+  defaults:
+    _title: 'Blog detail'
+    _controller: '\Drupal\blog\Controller\BlogController::details'
+  requirements:
+    _permission: 'access content'
+
+blog.score:
+  path: '/score/{nid}'
+  defaults:
+    _title: 'Post score'
+    _controller: '\Drupal\blog\Controller\BlogController::score'
   requirements:
     _permission: 'access content'

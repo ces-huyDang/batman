@@ -54,7 +54,7 @@ class BlogController extends ControllerBase
      *
      * @param ContainerInterface $container implemented by service container classes
      * 
-     * @return mixed
+     * @return static
      */
     public static function create(ContainerInterface $container)
     {
@@ -69,12 +69,11 @@ class BlogController extends ControllerBase
      * @return mixed
      *   Arrays of Posts information
      */
-    public function index()
+    public function blogs()
     {
-        $nodes = $this->blog_service->getAllContentByType('posts');
-        $posts = $this->blog_service->getPostsInfo($nodes);
+        $posts = $this->blog_service->getPostList();
         return [
-        '#theme' => 'index',
+        '#theme' => 'blogs',
         '#data' => [
         'posts' => $posts
         ],
@@ -106,5 +105,41 @@ class BlogController extends ControllerBase
     {
         $images = $this->blog_service->getCarouselImagesUrl();
         return new JsonResponse($images);
+    }
+
+    /**
+     * Get post by id and show information.
+     *
+     * @param string $nid Id from path.
+     *  
+     * @return mixed
+     *   Post with matched id
+     */
+    public function details($nid) 
+    {
+        $post = $this->blog_service->getPostById($nid);
+            return [
+            '#theme' => 'post-details',
+            '#data' => [
+            'post' => $post
+            ],
+            '#attached' => [
+            'library' => ['blog/blog'],
+            ],
+            ];
+    }
+
+    /**
+     * Get post score by id and show information.
+     *
+     * @param string $nid Id from path.
+     *  
+     * @return mixed
+     *   Score info with matched id
+     */
+    public function score($nid)
+    {
+        $score = $this->blog_service->getPostScore($nid);
+        return new JsonResponse($score);
     }
 }

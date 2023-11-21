@@ -102,42 +102,54 @@ class BlogService
     }
 
     /**
-     * Create a new array contains all needed Posts information.
+     * Create a new array contains all needed Post information.
      *
-     * @param array $nodes nodes of Content type: Posts.
+     * @param Node $node nodes of Content type: Posts.
      *
-     * @return array information of Posts.
+     * @return array information of Post.
      */
-    public function getPostsInfo($nodes)
+    public function getPostInfo($node)
     {
-        $posts_list = [];
-        foreach ($nodes as $node) {
-            $post_info = [];
-            $node_id = $node->id();
-            $node_title = $node->getTitle();
-            $node_created = $node->getCreatedTime();
-            $node_changed = $node->get('changed')->getValue()[0]['value'];
-            $node_body = $node->get('body')->getValue()[0]['value'];
-            $node_thumbnail_uri = $this->getImagesSrc($node->get('field_thumbnail_image')->getValue(), "uri");
-            $node_uid = $node->get('uid')->getValue()[0]['target_id'];
-            $node_is_featured = $node->get('field_is_featured')->getValue()[0]['value'];
-            $node_user = User::load($node_uid);
-            $post_info['id'] = $node_id;
-            $post_info['title'] = $node_title;
-            $post_info['created'] = $node_created;
-            $post_info['changed'] = $node_changed;
-            $post_info['body'] = $node_body;
-            $post_info['thumbnail_uri'] = $node_thumbnail_uri;
-            $post_info['uid'] = $node_user->id();
-            $post_info['user_name'] = $node_user->getAccountName();
-            if ($node_is_featured) {
-                $post_info['is_featured'] = true;
-            } else {
-                $post_info['is_featured'] = false;
-            }
-            array_push($posts_list, $post_info);
+        $post_info = [];
+        $node_id = $node->get('nid')->getValue()[0]['value'];
+        $node_title = $node->getTitle();
+        $node_created = $node->getCreatedTime();
+        $node_changed = $node->get('changed')->getValue()[0]['value'];
+        $node_body = $node->get('body')->getValue()[0]['value'];
+        $node_thumbnail_uri = $this->getImagesSrc($node->get('field_thumbnail_image')->getValue(), "uri");
+        $node_uid = $node->get('uid')->getValue()[0]['target_id'];
+        $node_is_featured = $node->get('field_is_featured')->getValue()[0]['value'];
+        $node_user = User::load($node_uid);
+        $post_info['id'] = $node_id;
+        $post_info['title'] = $node_title;
+        $post_info['created'] = $node_created;
+        $post_info['changed'] = $node_changed;
+        $post_info['body'] = $node_body;
+        $post_info['thumbnail_uri'] = $node_thumbnail_uri;
+        $post_info['uid'] = $node_user->id();
+        $post_info['user_name'] = $node_user->getAccountName();
+        if ($node_is_featured) {
+            $post_info['is_featured'] = true;
+        } else {
+            $post_info['is_featured'] = false;
         }
-        return $posts_list;
+        return $post_info;
+    }
+
+    /**
+     * Get Posts list to display on index.
+     *
+     * @return array list of Post.
+     */
+    public function getPostList()
+    {
+        $nodes = $this->getAllContentByType('posts');
+        $post_list = [];
+        foreach ($nodes as $node) {
+            $post = $this->getPostInfo($node);
+            array_push($post_list, $post);
+        }
+        return $post_list;
     }
 
     /**
@@ -200,5 +212,53 @@ class BlogService
             array_push($carousel_images_url, $carousel_image);
         }
         return $carousel_images_url;
+    }
+
+    /**
+     * Get a Post content by nid.
+     * 
+     * @param string $nid nid from Controller.
+     *
+     * @return array|null a Post with matched Id || null.
+     */
+    public function getPostById(string $nid)
+    {
+        $node = Node::load($nid);
+        $post = $this->getPostInfo($node);
+        return $post;
+    }
+
+    /**
+     * Get a Post score by nid.
+     * 
+     * @param string $nid id from Controller.
+     * 
+     * @return array|null Post's score info.
+     */
+    public function getPostScore(string $nid)
+    {
+        $node = Node::load($nid);
+        if (!$node) {
+            return null;
+        }
+        $score_info = [];
+        $total_score = 0;
+        $post_scores = [];
+        $post_score_ids = $node->get('field_score')->getValue();
+        if (count($post_score_ids) > 0) {
+            foreach ($post_score_ids as $post_score_id ) {
+                $score = Node::load($post_score_id['target_id']);
+                $post_score = $score->get('field_voted_score')[0]->value;
+                array_push($post_scores, $post_score);
+            }
+            foreach ($post_scores as $post_score) {
+                $total_score += $post_score;
+            }
+            $score_info['voted_users'] = count($post_scores);
+            $score_info['average_score'] = $total_score / count($post_scores);
+        } else {
+            $score_info['message'] = "This post has no rating score yet.";
+        }
+        return $score_info;
     }
 }

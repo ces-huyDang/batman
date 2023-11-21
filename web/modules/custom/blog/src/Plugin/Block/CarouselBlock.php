@@ -34,7 +34,7 @@ class CarouselBlock extends BlockBase
     public function build()
     {
         return [
-          '#theme' => 'carousel',
+          '#theme' => 'score',
         ];
     }
 }
