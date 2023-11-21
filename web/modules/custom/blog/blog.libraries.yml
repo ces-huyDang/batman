@@ -1,0 +1,13 @@
+# Custom module library for general purposes.
+blog:
+  js:
+    js/menu-animation.js: {}
+    js/scroll-animation.js: {}
+    js/characters-dropdown-menu.js: {}
+    js/batman-carousel.js: {}
+    js/rating-score.js: {}
+  css:
+    component:
+      css/blog.css: {}
+      css/carousel.css: {}
+      css/normalize.css: {}
