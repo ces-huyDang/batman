@@ -72,14 +72,13 @@ class BlogController extends ControllerBase
     public function blogs()
     {
         $posts = $this->blog_service->getPostList();
-        $score_list = $this->blog_service->getScoreList();
         return [
         '#theme' => 'blogs',
         '#data' => [
         'posts' => $posts
         ],
         '#attached' => [
-        'library' => ['blog/homepage'],
+        'library' => ['blog/blog'],
         ],
         ];
     }
@@ -119,25 +118,13 @@ class BlogController extends ControllerBase
     public function details($nid) 
     {
         $post = $this->blog_service->getPostById($nid);
-        if (!$post) {
-            $message = 'Look like the post you looking for does not exists.';
-            return [
-            '#theme' => 'post-details',
-            '#data' => [
-            'message' => $message
-            ],
-            '#attached' => [
-            'library' => ['blog/details'],
-            ],
-            ];
-        }
             return [
             '#theme' => 'post-details',
             '#data' => [
             'post' => $post
             ],
             '#attached' => [
-            'library' => ['blog/details'],
+            'library' => ['blog/blog'],
             ],
             ];
     }
@@ -153,9 +140,6 @@ class BlogController extends ControllerBase
     public function score($nid)
     {
         $score = $this->blog_service->getPostScore($nid);
-        if (!$score) {
-            return new JsonResponse(['error' => 'Internal Server Error'], 500);
-        }
         return new JsonResponse($score);
     }
 
