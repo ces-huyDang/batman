@@ -1,0 +1,32 @@
+#carousel {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.slide-image {
+  background-position: center;
+  background-size: cover;
+  display: inline-block;
+}
+
+.slide-image>img {
+  width: 1850px;
+  height: 374px;
+  object-fit: cover;
+}
+
+.w-95 {
+  width: 95%;
+}
+
+.start-5 {
+  left: 2.5%;
+}
+
+.mb-22 {
+  margin-bottom: 22.4rem;
+}
+
+#left-arrow, #right-arrow {
+  border: solid 2px white;
+}
