@@ -1,5 +1,0 @@
-services:
-  blog.service:
-    class: Drupal\blog\Services\BlogService
-    autowire: true
-    arguments: ['@entity_type.manager']
