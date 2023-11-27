@@ -1,5 +1,5 @@
 blog.index:
-  path: '/hp'
+  path: '/homepage'
   defaults:
     _title: 'Blogs Index'
     _controller: '\Drupal\blog\Controller\BlogController::blogs'

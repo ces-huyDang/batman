@@ -28,6 +28,7 @@
       $("#" + i).removeClass(document.getElementById(i).classList[2]);
       $("#" + i).addClass(btnColor);
     }
+    $("#noti").html("Hover and click to give a rating");
   }
 
   function mouseOut() {
@@ -105,14 +106,33 @@
     });
   }
 
+  function logInRequest() {
+    $.ajax({
+      url: "/current-user",
+      success: function (uid) {
+        if (uid === 0) {
+          $("#my-score").find(".my-score").hide();
+          $("#noti").html("You need to log in to rate this post.");
+          $("#noti").show();
+        }
+      },
+      error: function () {
+        console.error("Failed to retrieve dynamic data.");
+      },
+    });
+  }
+
   function getScore() {
     $.ajax({
       url: "/score/" + nid,
       success: function (data) {
+        console.log(data);
         // Create and append the dropdown menu with dynamic data
         if (data.message) {
-          $("#user-score").html(
-            '<div class="col-12">' + data.message + "</div>"
+          $("#user-score").find(".col-9").hide();
+          $("#user-score").find(".col-3").hide();
+          $("#user-score").append(
+            '<div id="data-message" class="col-12">' + data.message + "</div>"
           );
         } else {
           let squareColor;
@@ -124,27 +144,40 @@
           } else {
             squareColor = "bg-success";
           }
+          $("#user-score").find("#data-message").remove();
+          $("#user-score").find(".col-9").show();
+          $("#user-score").find(".col-3").show();
           $("#square").addClass(squareColor);
           $("#average-score").append(data.average_score);
         }
       },
       error: function () {
         console.error("Failed to retrieve dynamic data.");
+        $("#score").remove();
       },
     });
   }
 
+  function getNid() {
+    if (currentPath.startsWith("/vi", 0)) {
+      nid = currentPath.slice(9, window.location.pathname.length);
+    } else {
+      nid = currentPath.slice(6, window.location.pathname.length);
+    }
+  }
+
   let globalRatingScore;
   let globalBtnColor;
-  const nid = window.location.pathname.charAt(
-    window.location.pathname.length - 1
-  );
+  var currentPath = window.location.pathname;
+  var nid;
 
   $(document).ready(function () {
+    getNid();
     const scoreBtn = $(".rate-btn");
     scoreBtn.click(ratingBtnClick);
     scoreBtn.mouseenter(mouseEnter);
     scoreBtn.mouseout(mouseOut);
     getScore();
+    logInRequest();
   });
 })(jQuery);
