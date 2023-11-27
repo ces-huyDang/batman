@@ -13,7 +13,6 @@
  * @license https://github.com/ces-huyDang huyDang Github
  * @link    https://drupal10-blog.lndo.site/
  */
-
 namespace Drupal\blog\Services;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
@@ -82,10 +81,10 @@ class BlogService
      */
     public function getImagesSrc($field_images, $src_type)
     {
-        if ($src_type !== "url" && $src_type !== "uri") {
+        if ($src_type !== "url" && $src_type !== "uri") { 
             return [];
         }
-        $images_src = [];
+            $images_src = [];
         foreach ($field_images as $field_image) {
             $media = Media::load($field_image['target_id']);
             $fid = $media->getSource()->getSourceFieldValue($media);
@@ -94,12 +93,12 @@ class BlogService
             $image_url = \Drupal::service('file_url_generator')
             ->generateAbsoluteString($image_uri);
             if ($src_type === "uri") {
-                array_push($images_src, $image_uri);
+                array_push($images_src, $image_uri); 
             } else {
-                array_push($images_src, $image_url);
+                array_push($images_src, $image_url); 
             }
         }
-        return $images_src;
+            return $images_src;
     }
 
     /**
@@ -225,13 +224,6 @@ class BlogService
     public function getPostById(string $nid)
     {
         $node = Node::load($nid);
-        if (!$node) {
-            return null;
-        }
-        $type = $node->get('type')->getValue()[0]['target_id'];
-        if ($type !== 'posts') {
-            return null;
-        }
         $post = $this->getPostInfo($node);
         return $post;
     }
@@ -254,28 +246,19 @@ class BlogService
         $post_scores = [];
         $post_score_ids = $node->get('field_score')->getValue();
         if (count($post_score_ids) > 0) {
-            foreach ($post_score_ids as $post_score_id) {
+            foreach ($post_score_ids as $post_score_id ) {
                 $score = Node::load($post_score_id['target_id']);
                 if (!$score) {
-                    if (count($post_score_ids) === 1) {
-                        $node->get('field_score')->setValue([]);
-                    } else {
-                        continue;
-                    }
-                } else {
-                    $post_score = $score->get('field_voted_score')[0]->value;
-                    array_push($post_scores, $post_score);
+                    continue;
                 }
+                $post_score = $score->get('field_voted_score')[0]->value;
+                array_push($post_scores, $post_score);
             }
-            if (count($post_scores) <= 0) {
-                $score_info['message'] = "This post has no rating score yet.";
-            } else {
-                foreach ($post_scores as $post_score) {
-                    $total_score += $post_score;
-                }
-                $score_info['voted_users'] = count($post_scores);
-                $score_info['average_score'] = $total_score / count($post_scores);
+            foreach ($post_scores as $post_score) {
+                $total_score += $post_score;
             }
+            $score_info['voted_users'] = count($post_scores);
+            $score_info['average_score'] = $total_score / count($post_scores);
         } else {
             $score_info['message'] = "This post has no rating score yet.";
         }
@@ -297,7 +280,7 @@ class BlogService
         }
         $post_score_ids = $node->get('field_score')->getValue();
         $voted_uids = [];
-        foreach ($post_score_ids as $post_score_id) {
+        foreach ($post_score_ids as $post_score_id ) {
             $score = Node::load($post_score_id['target_id']);
             if (!$score) {
                 continue;
@@ -326,17 +309,16 @@ class BlogService
             $query->accessCheck(true);
             $query->condition('type', 'score');
             $query->condition('uid', $decoded_score_info->uid);
-            $query->condition('field_post', $decoded_score_info->nid);
             $score_id = $query->execute();
             $score = Node::load(array_values($score_id)[0]);
             $score->set('field_voted_score', $decoded_score_info->score);
             $score->save();
-            $message = 'Modified your score rating!';
-        } else {
+            $message = 'Modified score!';
+        } else {        
             $new_score = Node::create(
                 [
                 'type' => 'score',
-                'title' => $decoded_score_info->uid,
+                'title' => 'Score for post2',
                 'field_voted_score' => $decoded_score_info->score,
                 'uid' => $decoded_score_info->uid,
                 'field_post' => $decoded_score_info->nid,
@@ -352,28 +334,5 @@ class BlogService
             $message = 'Add new Score!';
         }
         return $message;
-    }
-
-    /**
-     * Get a list of posts and its score
-     * 
-     * @return array Posts list with score.
-     */
-    public function getScoreList()
-    {
-        $score_list = [];
-        $posts_list = $this->getAllContentByType("posts");
-        foreach ($posts_list as $post) {
-
-            $score = $this->getPostScore($post->id());
-            if (!$score['average_score']) {
-                continue;
-            }
-            $score_info = [];
-            $score_info['average_score'] = $score['average_score'];
-            $score_info['post_name'] = $post->get('title')->getValue()[0]['value'];
-            array_push($score_list, $score_info);
-        }
-        return $score_list;
     }
 }
