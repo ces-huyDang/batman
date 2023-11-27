@@ -1,12 +1,23 @@
 # Custom module library for general purposes.
-blog:
+homepage:
   js:
-    js/scroll-animation.js: {}
-    js/characters-dropdown-menu.js: {}
-    js/batman-carousel.js: {}
-    js/rating-score.js: {}
+    js/homepage.js: {}
+    js/dropdown-menu.js: {}
+  dependencies:
+    - core/jquery
   css:
     component:
       css/blog.css: {}
       css/carousel.css: {}
+      css/normalize.css: {}
+
+details:
+  js:
+    js/dropdown-menu.js: {}
+    js/rating-score.js: {}
+  dependencies:
+    - core/jquery
+  css:
+    component:
+      css/blog.css: {}
       css/normalize.css: {}

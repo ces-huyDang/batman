@@ -3,7 +3,8 @@
     {% for post in data.posts|sort((a, b) => (b['is_featured'] <=> a['is_featured'])) %}
       <div class={{ post['is_featured'] is same as(true) ? "col-12" : "col-6" }}>
         <div id={{ "post" ~ loop.index0 }} class="card mb-4 posts">
-          <img src={{ post['is_featured'] is same as(true) ? post['thumbnail_uri'][0]|image_style('featured_post_thumbnail') : post['thumbnail_uri'][0]|image_style('post_thumbnail')}} class="card-img-top thumbnail" alt="...">
+          <img 
+          src={{ post['is_featured'] is same as(true) ? post['thumbnail_uri'][0]|image_style('featured_post_thumbnail') : post['thumbnail_uri'][0]|image_style('post_thumbnail')}}>
           <div class="card-body">
             <div class="text-muted author">
               Created on

@@ -1,4 +1,4 @@
-<div class="card">
+<div id="score" class="card">
   <div class="card-body">
     <h3>
       Score
@@ -25,15 +25,15 @@
       </div>
     </div>
     <hr>
-    <div class="row">
+    <div id="my-score" class="row" class="my-score">
       <div class="col-9">
         <span class="font-mono">
           MY SCORE
         </span>
         <br>
-        <span id="noti" class="fw-medium">Hover and click to give a rating</span>
+        <span id="noti" class="fw-medium my-score">Hover and click to give a rating</span>
         <br>
-        <div id="rating-btn">
+        <div class="my-score" id="rating-btn">
           <div id="btn-group" class="btn-group" role="group">
             {% for i in 0..10 %}
               {% if i <= 3 %}
