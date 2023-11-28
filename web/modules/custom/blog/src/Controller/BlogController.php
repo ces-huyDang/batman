@@ -73,7 +73,6 @@ class BlogController extends ControllerBase
     public function blogs()
     {
         $posts = $this->blog_service->getPostList();
-        $score_list = $this->blog_service->getAverageScores();
         return [
         '#theme' => 'blogs',
         '#data' => [
@@ -123,7 +122,7 @@ class BlogController extends ControllerBase
         if (!$post) {
             $message = 'Look like the post you looking for does not exists.';
             return [
-            '#theme' => 'post-details',
+            '#theme' => 'post_details',
             '#data' => [
             'message' => $message
             ],
@@ -133,7 +132,7 @@ class BlogController extends ControllerBase
             ];
         }
             return [
-            '#theme' => 'post-details',
+            '#theme' => 'post_details',
             '#data' => [
             'post' => $post
             ],

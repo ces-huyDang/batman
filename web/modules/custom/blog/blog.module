@@ -28,8 +28,14 @@
               'data' => [],
             ],
           ],
-        'post-details' => [
+        'post_details' => [
             'template'=> 'post-details',
+            'variables' => [
+              'data' => [],
+            ],
+          ],
+        'average_score' => [
+            'template'=> 'average-score',
             'variables' => [
               'data' => [],
             ],

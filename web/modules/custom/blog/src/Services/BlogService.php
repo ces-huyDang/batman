@@ -347,29 +347,6 @@ class BlogService
     }
 
     /**
-     * Get a list of posts and its score
-     * 
-     * @return array Posts list with score.
-     */
-    public function getAverageScores()
-    {
-        $score_list = [];
-        $posts_list = $this->getAllContentByType("posts");
-        foreach ($posts_list as $post) {
-
-            $score = $this->calculateAverageScore($post->id());
-            if (!$score['average_score']) {
-                continue;
-            }
-            $score_info = [];
-            $score_info['average_score'] = $score['average_score'];
-            $score_info['post_name'] = $post->get('title')->getValue()[0]['value'];
-            array_push($score_list, $score_info);
-        }
-        return $score_list;
-    }
-
-    /**
      * Get a Post score by nid.
      * 
      * @param string $nid id from Controller.
@@ -392,5 +369,28 @@ class BlogService
                 ->getValue()[0]['value'];
         }
             return $score_info;
+    }
+
+    /**
+     * Get a list of posts and its score
+     * 
+     * @return array Posts list with score.
+     */
+    public function getAverageScores()
+    {
+        $score_list = [];
+        $posts_list = $this->getAllContentByType("posts");
+        foreach ($posts_list as $post) {
+
+            $score = $this->calculateAverageScore($post->id());
+            if (!$score['average_score']) {
+                continue;
+            }
+            $score_info = [];
+            $score_info['average_score'] = $score['average_score'];
+            $score_info['post_name'] = $post->get('title')->getValue()[0]['value'];
+            array_push($score_list, $score_info);
+        }
+        return $score_list;
     }
 }
