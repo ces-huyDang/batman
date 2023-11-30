@@ -124,7 +124,7 @@
 
   function getScore() {
     $.ajax({
-      url: "/score/" + nid,
+      url: "/average-score/" + nid,
       success: function (data) {
         // Create and append the dropdown menu with dynamic data
         if (!data.average_score || !data.voted_users) {

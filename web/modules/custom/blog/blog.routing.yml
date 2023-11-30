@@ -31,10 +31,10 @@ blog.details:
     _permission: 'access content'
 
 blog.score:
-  path: '/score/{nid}'
+  path: '/average-score/{nid}'
   defaults:
     _title: 'Post score'
-    _controller: '\Drupal\blog\Controller\BlogController::score'
+    _controller: '\Drupal\blog\Controller\BlogController::averageScore'
   requirements:
     _permission: 'access content'
 
@@ -51,5 +51,13 @@ blog.rating:
   defaults:
     _title: 'Score Rating'
     _controller: '\Drupal\blog\Controller\BlogController::rate'
+  requirements:
+    _permission: 'access content'
+
+blog.testing:
+  path: '/test'
+  defaults:
+    _title: 'Testing'
+    _controller: '\Drupal\blog\Controller\BlogController::test'
   requirements:
     _permission: 'access content'

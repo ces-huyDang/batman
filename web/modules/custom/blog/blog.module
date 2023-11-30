@@ -23,7 +23,7 @@
             ],
           ],
         'score' => [
-            'template'=> 'score',
+            'template'=> 'score-rating',
             'variables' => [
               'data' => [],
             ],
@@ -35,10 +35,22 @@
             ],
           ],
         'average_score' => [
-            'template'=> 'average-score',
+            'template'=> 'score-block',
             'variables' => [
               'data' => [],
             ],
-          ]
+          ],
+        'meta_score' => [
+            'template'=> 'score-block',
+            'variables' => [
+              'data' => [],
+            ],
+          ],
+        'movies_block' => [
+            'template'=> 'movies-block',
+            'variables' => [
+              'data' => [],
+            ],
+          ],
         ];       
  }

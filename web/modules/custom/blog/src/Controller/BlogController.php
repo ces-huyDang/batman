@@ -150,7 +150,7 @@ class BlogController extends ControllerBase
      * @return mixed
      *   Score info with matched id.
      */
-    public function score($nid)
+    public function averageScore($nid)
     {
         $node = Node::load($nid);
         $score = $this->blog_service->getAverageScore($nid);

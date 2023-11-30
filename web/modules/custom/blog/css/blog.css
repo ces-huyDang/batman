@@ -32,3 +32,7 @@
   font-size: xx-large;
   color: white;
 }
+
+.col-hr {
+  border-right: 1px solid #C7C8C9;
+}

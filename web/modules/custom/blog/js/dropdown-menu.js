@@ -2,7 +2,7 @@
   function characters() {
     let newParent;
     // Your selector for the dropdown parent
-    const originParent = $("#menu-link2");
+    const originParent = $("#menu-link3");
     if (currentPath.startsWith("/vi", 0)) {
       newParent = $("<div></div>", {
         html: '<button class="btn btn-sm btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Nhân Vật</button>',
@@ -15,14 +15,14 @@
       });
     }
     originParent.replaceWith(newParent);
-    const dropdownMenu = $('<ul class="dropdown-menu text-center"></ul>');
+    const dropdownMenu = $('<ul class="dropdown-menu text-center bg-black border border-white"></ul>');
     $.ajax({
       url: "/characters",
       success: function (data) {
         // Create and append the dropdown menu with dynamic data
         data.forEach(function (item) {
           dropdownMenu.append(
-            '<li class="text-invisible chars-name"><a href="/taxonomy/term/' +
+            '<li class="chars-name"><a href="/taxonomy/term/' +
               item.tid +
               '">' +
               item.term_name +
@@ -36,7 +36,7 @@
     });
     newParent.hover(
       function () {
-        $("#menu-link2").append(dropdownMenu);
+        $("#menu-link3").append(dropdownMenu);
         // Perform an AJAX request to get dynamic data
         dropdownMenu.show();
       },
@@ -57,8 +57,8 @@
   }
 
   function language() {
-    const originParent = $("#menu-link3");
-    const dropdownMenu = $('<ul class="dropdown-menu text-center"></ul>');
+    const originParent = $("#menu-link4");
+    const dropdownMenu = $('<ul class="dropdown-menu text-center bg-black border border-white"></ul>');
     let newPath;
     let newParent;
     if (currentPath.startsWith("/vi", 0)) {
@@ -89,7 +89,7 @@
 
     newParent.hover(
       function () {
-        $("#menu-link3").append(dropdownMenu);
+        $("#menu-link4").append(dropdownMenu);
         // Perform an AJAX request to get dynamic data
         dropdownMenu.show();
         console.log(currentPath);
@@ -101,12 +101,45 @@
     );
   }
 
+  // Rich Menu
+  function moviesBlock() {
+    const originParent = $("#menu-link2");
+    let newParent;
+    if (currentPath.startsWith("/vi", 0)) {
+      newParent = $("<div></div>", {
+        html: '<button class="btn btn-sm btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Phim</button>',
+        id: originParent.attr("id"),
+      });
+    } else {
+      newParent = $("<div></div>", {
+        html: '<button class="btn btn-sm btn-light dropdown-toggle" type="button" aria-expanded="false">Movies</button>',
+        id: originParent.attr("id"),
+      });
+    }
+    originParent.replaceWith(newParent);
+    newParent.hover(
+      function () {
+        $("#movies-block").removeClass("d-none");
+      },
+      function () {
+        // On hover out, hide the dropdown menu
+        if (!$("#movies-block").is(":hover")) {
+          $("#movies-block").addClass("d-none");
+        } else {
+          $("#movies-block").mouseleave(() => {
+            $("#movies-block").addClass("d-none");
+          });
+        }
+      }
+    );
+  }
   const currentPath = window.location.pathname;
-
   $(document).ready(function () {
     characters();
     language();
+    $("#movies-block").addClass("d-none");
     // Menu Animation
     menuAnimation();
+    moviesBlock();
   });
 })(jQuery);

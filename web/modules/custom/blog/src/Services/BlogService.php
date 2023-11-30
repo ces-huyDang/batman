@@ -118,12 +118,23 @@ class BlogService
         $node_created = $node->getCreatedTime();
         $node_changed = $node->get('changed')->getValue()[0]['value'];
         $node_body = $node->get('body')->getValue()[0]['value'];
-        $node_thumbnail_uri = $this->getImagesSrc(
-            $node->get('field_thumbnail_image')
-                ->getValue(), "uri"
-        );
+        // Check the content type of node to get image URI on the right field.
+        if ($node->get('type')->getValue()[0]['target_id'] === "posts") {
+            $node_is_featured = $node->get('field_is_featured')->getValue()[0]['value'];
+            $node_thumbnail_uri = $this->getImagesSrc(
+                $node->get('field_thumbnail_image')
+                    ->getValue(), "uri"
+            );
+            $node_is_featured 
+            ? $post_info['is_featured'] = true 
+            : $post_info['is_featured'] = false;
+        } else {
+            $node_thumbnail_uri = $this->getImagesSrc(
+                $node->get('field_movie_thumbnail')
+                    ->getValue(), "uri"
+            );
+        }
         $node_uid = $node->get('uid')->getValue()[0]['target_id'];
-        $node_is_featured = $node->get('field_is_featured')->getValue()[0]['value'];
         $node_user = User::load($node_uid);
         $post_info['id'] = $node_id;
         $post_info['title'] = $node_title;
@@ -133,11 +144,7 @@ class BlogService
         $post_info['thumbnail_uri'] = $node_thumbnail_uri;
         $post_info['uid'] = $node_user->id();
         $post_info['user_name'] = $node_user->getAccountName();
-        if ($node_is_featured) {
-            $post_info['is_featured'] = true;
-        } else {
-            $post_info['is_featured'] = false;
-        }
+
         return $post_info;
     }
 
@@ -240,8 +247,10 @@ class BlogService
         return $post;
     }
 
+    // Average Score.
+
     /**
-     * Calculate a Post score by nid.
+     * Calculate a Post average score by nid.
      * 
      * @param string $nid id from Controller.
      * 
@@ -372,9 +381,9 @@ class BlogService
     }
 
     /**
-     * Get a list of posts and its score
+     * Get a list of posts and its average score
      * 
-     * @return array Posts list with score.
+     * @return array Posts list with average score.
      */
     public function getAverageScores()
     {
@@ -387,10 +396,90 @@ class BlogService
                 continue;
             }
             $score_info = [];
-            $score_info['average_score'] = $score['average_score'];
+            $score_info['score'] = $score['average_score'];
             $score_info['post_name'] = $post->get('title')->getValue()[0]['value'];
             array_push($score_list, $score_info);
         }
         return $score_list;
+    }
+
+    // Meta Score.
+
+    /**
+     * Calculate a Post meta score by nid.
+     * 
+     * @param string $nid id from Controller.
+     * 
+     * @return array|null Post's meta score info.
+     */
+    public function calculateMetaScore(string $nid)
+    {
+        $node = Node::load($nid);
+        $score_info = [];
+        $total_score = 0;
+        $score_ids = $node->get('field_users_score')->getValue();
+        foreach ($score_ids as $score_id) {
+            $paragraph = Paragraph::load($score_id['target_id']);
+            $score = $paragraph->get('field_user_score')->getValue()[0]['value'];
+            $total_score += $score;
+        }
+        $score_info['voted_users'] = count($score_ids);
+        $score_info['meta_score'] = $total_score;
+        return $score_info;
+    }
+
+    /**
+     * Get a list of posts and its meta score
+     * 
+     * @return array Posts list with meta score.
+     */
+    public function getMetaScores()
+    {
+        $score_list = [];
+        $posts_list = $this->getAllContentByType("posts");
+        foreach ($posts_list as $post) {
+
+            $score = $this->calculateMetaScore($post->id());
+            if (!$score['meta_score']) {
+                continue;
+            }
+            $score_info = [];
+            $score_info['score'] = $score['meta_score'];
+            $score_info['post_name'] = $post->get('title')->getValue()[0]['value'];
+            $score_info['image_uri'] = $this->getImagesSrc(
+                $post->get('field_thumbnail_image')
+                    ->getValue(), "uri"
+            );
+            array_push($score_list, $score_info);
+        }
+        return $score_list;
+    }
+
+    /**
+     * Get all Movies with Category: Series 
+     * 
+     * @return array Movies list with category: Series
+     */
+    public function getSeriesMovie() 
+    {
+        $term_name = 'Series';
+        $term_query = $this->entityTypeManager->getStorage('taxonomy_term')
+            ->getQuery();
+        $term_query->accessCheck(true);
+        $term_query->condition("name", $term_name);
+        $tid = $term_query->execute();
+        $node_query = $this->entityTypeManager->getStorage('node')
+            ->getQuery();
+        $node_query->accessCheck(true);
+        $node_query->condition('type', 'movie');
+        $node_query->condition('status', 1);
+        $node_query->condition('field_category', $tid);
+        $nodes = $node_query->execute();
+        $movies_info = [];
+        foreach ($nodes as $node) {
+            $movie = $this->getPostInfo(Node::load($node));
+            array_push($movies_info, $movie);
+        }
+        return $movies_info;
     }
 }
