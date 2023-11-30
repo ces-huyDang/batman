@@ -1,0 +1,25 @@
+uuid: 85ed179c-6620-4502-975f-0e40ed1e2248
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:971ffba9-b12e-4f8d-b2a3-2c686ec5e26f'
+  module:
+    - block_content
+  theme:
+    - lando_blog
+id: welcometobloglando
+theme: lando_blog
+region: header
+weight: 0
+provider: null
+plugin: 'block_content:971ffba9-b12e-4f8d-b2a3-2c686ec5e26f'
+settings:
+  id: 'block_content:971ffba9-b12e-4f8d-b2a3-2c686ec5e26f'
+  label: 'Welcome to Blog Lando!'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

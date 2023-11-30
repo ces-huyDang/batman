@@ -1,0 +1,10 @@
+uuid: 3bd3d258-1271-42ca-b053-c9a76d370748
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.sra
+label: 'Search Mode'
+targetEntityType: node
+cache: true

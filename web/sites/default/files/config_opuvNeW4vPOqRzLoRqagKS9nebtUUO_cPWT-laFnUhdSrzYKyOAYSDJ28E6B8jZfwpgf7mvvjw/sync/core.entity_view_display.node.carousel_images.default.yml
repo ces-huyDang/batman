@@ -1,0 +1,29 @@
+uuid: 846a881a-2172-475e-a3a8-b3d5a1bc470c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.carousel_images.field_carousel_images
+    - node.type.carousel_images
+  module:
+    - user
+id: node.carousel_images.default
+targetEntityType: node
+bundle: carousel_images
+mode: default
+content:
+  field_carousel_images:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

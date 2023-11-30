@@ -1,0 +1,10 @@
+uuid: bf6e2945-e614-45fd-8bc4-29030f44e52c
+langcode: en
+status: true
+dependencies: {  }
+id: average_score
+label: 'Average Score'
+icon_uuid: null
+icon_default: null
+description: 'Voted Users And Average Score'
+behavior_plugins: {  }

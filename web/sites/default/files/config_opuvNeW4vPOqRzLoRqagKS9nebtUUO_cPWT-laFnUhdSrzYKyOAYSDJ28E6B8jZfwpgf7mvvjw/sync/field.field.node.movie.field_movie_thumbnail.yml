@@ -1,0 +1,29 @@
+uuid: db0e763c-d177-41af-b3b3-91cf383f17cf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_movie_thumbnail
+    - media.type.image
+    - node.type.movie
+id: node.movie.field_movie_thumbnail
+field_name: field_movie_thumbnail
+entity_type: node
+bundle: movie
+label: 'Movie Thumbnail'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

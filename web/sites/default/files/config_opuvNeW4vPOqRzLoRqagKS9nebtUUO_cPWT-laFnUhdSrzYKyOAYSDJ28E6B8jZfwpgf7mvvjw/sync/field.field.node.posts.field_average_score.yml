@@ -1,0 +1,31 @@
+uuid: 872f19c8-9684-4056-9be1-f7101badcf90
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_average_score
+    - node.type.posts
+    - paragraphs.paragraphs_type.average_score
+  module:
+    - entity_reference_revisions
+id: node.posts.field_average_score
+field_name: field_average_score
+entity_type: node
+bundle: posts
+label: 'Average Score'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      average_score: average_score
+    negate: 0
+    target_bundles_drag_drop:
+      average_score:
+        weight: 2
+        enabled: true
+field_type: entity_reference_revisions

@@ -1,0 +1,18 @@
+uuid: 6c2957fa-5d32-4901-aa81-8acd7aad67ba
+langcode: en
+status: true
+dependencies: {  }
+id: config_dev
+label: 'Config Dev'
+description: ''
+weight: 1
+stackable: false
+no_patching: false
+storage: folder
+folder: config_dev
+module:
+  devel: 0
+  devel_generate: 0
+theme: {  }
+complete_list: {  }
+partial_list: {  }

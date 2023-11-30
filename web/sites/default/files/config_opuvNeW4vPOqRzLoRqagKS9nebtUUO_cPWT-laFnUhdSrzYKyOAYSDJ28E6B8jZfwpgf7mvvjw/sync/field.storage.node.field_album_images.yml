@@ -1,0 +1,20 @@
+uuid: 2722bec5-25ae-4ae8-b5d5-69c749b0e209
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - node
+id: node.field_album_images
+field_name: field_album_images
+entity_type: node
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 10
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

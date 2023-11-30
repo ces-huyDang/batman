@@ -1,0 +1,93 @@
+uuid: 7147d222-ddff-4290-b533-861a639e998e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.posts.body
+    - field.field.node.posts.field_average_score
+    - field.field.node.posts.field_is_featured
+    - field.field.node.posts.field_meta_score
+    - field.field.node.posts.field_ra
+    - field.field.node.posts.field_thumbnail_image
+    - field.field.node.posts.field_users_score
+    - node.type.posts
+  module:
+    - entity_reference_revisions
+    - fivestar
+    - text
+    - user
+id: node.posts.default
+targetEntityType: node
+bundle: posts
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_average_score:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_is_featured:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_meta_score:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_ra:
+    type: fivestar_stars
+    label: above
+    settings:
+      text_format: average
+      display_format: average
+      fivestar_widget: basic
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_thumbnail_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_users_score:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

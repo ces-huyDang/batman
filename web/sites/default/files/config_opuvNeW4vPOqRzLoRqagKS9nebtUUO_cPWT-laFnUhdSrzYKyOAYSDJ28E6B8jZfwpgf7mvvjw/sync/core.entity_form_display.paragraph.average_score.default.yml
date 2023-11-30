@@ -1,0 +1,30 @@
+uuid: 09ea5070-1936-4e3a-b0ff-e750df2ca4ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.average_score.field_score
+    - field.field.paragraph.average_score.field_voted_users
+    - paragraphs.paragraphs_type.average_score
+id: paragraph.average_score.default
+targetEntityType: paragraph
+bundle: average_score
+mode: default
+content:
+  field_score:
+    type: number
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_voted_users:
+    type: number
+    weight: 2
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

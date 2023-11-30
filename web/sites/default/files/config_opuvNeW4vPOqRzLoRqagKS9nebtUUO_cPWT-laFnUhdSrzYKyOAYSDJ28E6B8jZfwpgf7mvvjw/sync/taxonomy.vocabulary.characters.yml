@@ -1,0 +1,8 @@
+uuid: 5965a30f-6071-45a3-9fce-09d608f4d87b
+langcode: en
+status: true
+dependencies: {  }
+name: Characters
+vid: characters
+description: 'About Batman Universe Characters'
+weight: 0

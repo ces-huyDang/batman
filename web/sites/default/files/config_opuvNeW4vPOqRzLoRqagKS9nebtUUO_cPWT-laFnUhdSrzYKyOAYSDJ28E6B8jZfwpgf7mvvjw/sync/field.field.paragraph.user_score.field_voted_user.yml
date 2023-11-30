@@ -1,0 +1,29 @@
+uuid: 45d070ee-8343-4e87-a489-453ac3bf3a6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_voted_user
+    - paragraphs.paragraphs_type.user_score
+id: paragraph.user_score.field_voted_user
+field_name: field_voted_user
+entity_type: paragraph
+bundle: user_score
+label: 'Voted User'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    filter:
+      type: _none
+    include_anonymous: true
+field_type: entity_reference

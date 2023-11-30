@@ -1,0 +1,34 @@
+uuid: eb51c7ab-7b26-49b1-8ccb-4fd94347a9f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.average_score.field_score
+    - field.field.paragraph.average_score.field_voted_users
+    - paragraphs.paragraphs_type.average_score
+id: paragraph.average_score.default
+targetEntityType: paragraph
+bundle: average_score
+mode: default
+content:
+  field_score:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_voted_users:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }

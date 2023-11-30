@@ -1,0 +1,33 @@
+uuid: 9014724e-771f-44e2-a612-35e8b7f58dec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.user_score.field_user_score
+    - field.field.paragraph.user_score.field_voted_user
+    - paragraphs.paragraphs_type.user_score
+id: paragraph.user_score.default
+targetEntityType: paragraph
+bundle: user_score
+mode: default
+content:
+  field_user_score:
+    type: number
+    weight: 0
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_voted_user:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

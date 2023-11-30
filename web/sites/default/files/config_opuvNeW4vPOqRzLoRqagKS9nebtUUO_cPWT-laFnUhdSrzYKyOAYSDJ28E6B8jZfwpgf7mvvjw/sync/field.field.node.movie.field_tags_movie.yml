@@ -1,0 +1,29 @@
+uuid: 308a3d9f-dc1a-401d-9f6a-582e5ff28219
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tags_movie
+    - node.type.movie
+    - taxonomy.vocabulary.tags
+id: node.movie.field_tags_movie
+field_name: field_tags_movie
+entity_type: node
+bundle: movie
+label: Tags
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tags: tags
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

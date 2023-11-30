@@ -1,0 +1,37 @@
+uuid: 209d7772-d0ac-4900-bffb-bd1915b2788e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.movie.body
+    - field.field.node.movie.field_category
+    - field.field.node.movie.field_movie_thumbnail
+    - field.field.node.movie.field_tags_movie
+    - node.type.movie
+  module:
+    - text
+    - user
+id: node.movie.teaser
+targetEntityType: node
+bundle: movie
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_category: true
+  field_movie_thumbnail: true
+  field_tags_movie: true
+  langcode: true

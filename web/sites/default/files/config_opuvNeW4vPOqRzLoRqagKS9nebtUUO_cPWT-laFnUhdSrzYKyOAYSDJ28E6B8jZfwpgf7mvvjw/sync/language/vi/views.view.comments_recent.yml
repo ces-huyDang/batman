@@ -1,0 +1,13 @@
+label: 'Bài bình luận gần đây'
+display:
+  default:
+    display_title: 'Mặc định'
+    display_options:
+      title: 'Bài bình luận gần đây'
+      empty:
+        area_text_custom:
+          content: 'Không có bài bình luận nào.'
+  block_1:
+    display_title: Khối
+    display_options:
+      block_description: 'Bài bình luận gần đây'

@@ -1,0 +1,10 @@
+uuid: 9288c2c8-1f91-449c-b51b-f27609062ca1
+langcode: en
+status: true
+dependencies: {  }
+id: user_score
+label: 'User Score'
+icon_uuid: null
+icon_default: null
+description: 'Store user id, score '
+behavior_plugins: {  }

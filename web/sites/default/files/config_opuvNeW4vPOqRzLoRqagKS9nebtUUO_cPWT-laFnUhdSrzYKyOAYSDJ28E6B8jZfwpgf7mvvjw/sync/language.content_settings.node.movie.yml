@@ -1,0 +1,18 @@
+uuid: 89a57f0c-c6c4-4533-abb5-374e065d6af2
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.movie
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.movie
+target_entity_type_id: node
+target_bundle: movie
+default_langcode: site_default
+language_alterable: true

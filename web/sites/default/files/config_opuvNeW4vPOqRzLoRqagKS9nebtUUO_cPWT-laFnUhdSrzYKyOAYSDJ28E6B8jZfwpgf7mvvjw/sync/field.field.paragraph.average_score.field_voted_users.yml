@@ -1,0 +1,23 @@
+uuid: 1da5b7d2-eada-4e56-9748-3529e7eb299a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_voted_users
+    - paragraphs.paragraphs_type.average_score
+id: paragraph.average_score.field_voted_users
+field_name: field_voted_users
+entity_type: paragraph
+bundle: average_score
+label: 'Voted Users'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

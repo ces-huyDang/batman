@@ -1,0 +1,37 @@
+uuid: 8ec16d5d-cccf-4c52-a1ba-9975d668f171
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_score
+    - node.type.posts
+    - paragraphs.paragraphs_type.meta_score
+  module:
+    - entity_reference_revisions
+id: node.posts.field_meta_score
+field_name: field_meta_score
+entity_type: node
+bundle: posts
+label: 'Meta Score'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      meta_score: meta_score
+    negate: 0
+    target_bundles_drag_drop:
+      average_score:
+        weight: 4
+        enabled: false
+      meta_score:
+        weight: 5
+        enabled: true
+      user_score:
+        weight: 6
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,43 @@
+uuid: c536f80d-784f-4b31-81d1-910dfbf129c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.posts.body
+    - field.field.node.posts.field_average_score
+    - field.field.node.posts.field_is_featured
+    - field.field.node.posts.field_meta_score
+    - field.field.node.posts.field_ra
+    - field.field.node.posts.field_thumbnail_image
+    - field.field.node.posts.field_users_score
+    - node.type.posts
+  module:
+    - text
+    - user
+id: node.posts.teaser
+targetEntityType: node
+bundle: posts
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_average_score: true
+  field_is_featured: true
+  field_meta_score: true
+  field_ra: true
+  field_thumbnail_image: true
+  field_users_score: true
+  langcode: true

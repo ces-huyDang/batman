@@ -1,0 +1,32 @@
+uuid: 14804ec9-12ac-4db0-8b66-0732a9753a62
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.meta_score.field_score_meta
+    - field.field.paragraph.meta_score.field_voted_users_meta
+    - paragraphs.paragraphs_type.meta_score
+id: paragraph.meta_score.default
+targetEntityType: paragraph
+bundle: meta_score
+mode: default
+content:
+  field_score_meta:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_voted_users_meta:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }
