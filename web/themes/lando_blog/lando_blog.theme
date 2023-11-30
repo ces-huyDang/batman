@@ -1,0 +1,42 @@
+<?php declare(strict_types = 1);
+
+/**
+ * @file
+ * Functions to support theming in the Lando Blog theme.
+ */
+
+/**
+ * Implements hook_preprocess_HOOK() for html.html.twig.
+ */
+function lando_blog_preprocess_html(array &$variables): void {
+  https://docs.docker.com/engine/install/https://docs.docker.com/engine/install/
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page.html.twig.
+ */
+function lando_blog_preprocess_page(array &$variables): void {
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for node.html.twig.
+ */
+function lando_blog_preprocess_node(array &$variables): void {
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for Block.
+ */
+function lando_blog_preprocess_block(&$variables) {
+  // Check if it's a specific block.
+  if ($variables['plugin_id'] == 'average_score_block') {
+    // Add a custom variable.
+    $variables['label'] = 'Current Movie Releases';
+  }
+  if ($variables['plugin_id'] == 'views_block__movie_by_category_block_1') {
+    // Add a custom variable.
+    $variables['label'] = 'Movies';
+  }
+}

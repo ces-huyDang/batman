@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="card header bg-light ">
+      <div class="p-5 text-center">{{ page.header }}</div>
+    </div>
+    <div id="page-menu" class="menu menu-bg-light rounded">
+      <div>{{ page.primary_menu }}</div>
+    </div>
+    {% if page.featured %}
+      <div class="featured mb-24">
+        <div class="col-12">
+          {{ page.featured }}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+  <div class="row mt-5">
+    <div class="col-3">{{ page.sidebar_first }}</div>
+    <div class="col-6">{{ page.content }}</div>
+    <div class="col-3">{{ page.sidebar_second }}</div>
+  </div>
+  <div class="row mt-5">
+    <div class="card footer bg-light">
+      <div class="text-center p-5">
+        {{ page.footer }}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+name: Lando Blog
+type: theme
+base theme: false
+description: A flexible theme with a responsive, mobile-first layout.
+package: Custom
+core_version_requirement: ^10
+libraries:
+  - lando_blog/global
+regions:
+  header: 'Header'
+  primary_menu: 'Primary menu'
+  featured: 'Featured'
+  content: 'Content'
+  sidebar_first: 'Left sidebar'
+  sidebar_second: 'Right sidebar'
+  footer: 'Footer'

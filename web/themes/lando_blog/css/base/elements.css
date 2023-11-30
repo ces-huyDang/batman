@@ -1,0 +1,140 @@
+@import "./bootstrap.css";
+@import "./bootstrap.min.css";
+
+.block-center {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.w-95 {
+  width: 95%;
+}
+
+.w-a {
+  width: auto;
+}
+
+.mw-49 {
+  min-width: 49%;
+}
+
+.col-gap {
+  column-gap: 2%;
+}
+
+img {
+  border-radius: 5px;
+}
+
+.menu {
+  min-height: 3rem;
+}
+
+.text-visible {
+  color: white;
+  transition: color 1s ease;
+}
+
+.text-invisible {
+  color: black;
+  transition: color 1s ease;
+}
+
+.text-visible>a {
+  text-decoration: none;
+  color: white;
+  transition: color 1s ease;
+}
+
+.text-invisible>a {
+  text-decoration: none;
+  color: black;
+  transition: color 1s ease;
+}
+
+.menu-bg-dark {
+  background-color: black;
+  transition: background-color 1s ease;
+}
+
+.menu-bg-light {
+  background-color: white;
+  transition: background-color 1s ease;
+}
+
+.w-80 {
+  width: 150%;
+}
+
+#search-block-form {
+  display: flex;
+}
+
+#search-btn {
+  margin-left: 3rem;
+}
+
+#edit-keys {
+  width: 95%;
+  margin-right: 10rem;
+}
+
+/* .feature-post-taxonomy > a {
+  --bs-badge-padding-x: 0.65em;
+  --bs-badge-padding-y: 0.35em;
+  --bs-badge-font-size: 0.75em;
+  --bs-badge-font-weight: 700;
+  --bs-badge-color: #fff;
+  --bs-badge-border-radius: var(--bs-border-radius);
+  display: inline-block;
+  padding: var(--bs-badge-padding-y) var(--bs-badge-padding-x);
+  font-size: var(--bs-badge-font-size);
+  font-weight: var(--bs-badge-font-weight);
+  line-height: 1;
+  color: var(--bs-badge-color);
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: var(--bs-badge-border-radius);
+  color: #fff !important;
+  background-color: RGBA(
+    var(--bs-secondary-rgb),
+    var(--bs-bg-opacity, 1)
+  ) !important;
+  text-decoration: none;
+} */
+
+.chars-name>a {
+  color: white;
+  text-decoration: none;
+}
+
+.chars-name>a:hover {
+  color: black;
+  transition: none;
+}
+
+.chars-name:hover {
+  background-color: white;
+}
+
+.start-8 {
+  left: 8.3%;
+}
+
+#movies-block {
+  margin-top: -15px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: black;
+  border: 1px solid white;
+}
+
+.bg-black {
+  background-color: black;
+}
+
+.start-68 {
+  left: 68%;
+}
