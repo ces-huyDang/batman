@@ -8,8 +8,8 @@ libraries:
   - lando_blog/global
 regions:
   header: 'Header'
-  featured: 'Featured'
   primary_menu: 'Primary menu'
+  featured: 'Featured'
   content: 'Content'
   sidebar_first: 'Left sidebar'
   sidebar_second: 'Right sidebar'

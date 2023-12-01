@@ -53,4 +53,3 @@ blog.rating:
     _controller: '\Drupal\blog\Controller\BlogController::rate'
   requirements:
     _permission: 'access content'
-
