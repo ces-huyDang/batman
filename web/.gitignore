@@ -42,3 +42,5 @@ sites/simpletest
 # simpletest
 xdebug.ini
 .lando.yml
+
+modules/contrib/rules

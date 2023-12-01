@@ -1,16 +1,16 @@
 <div class="container-fluid">
   {% for score in data.scores %}
     <div class="row mt-2">
-      <div class="col-2">
+      <div class="col-3">
         <div id="square" class="square row bg-success">
           <div class="text-center text-white pt-1">
             <span id="average-score">{{ score['score']|round(1) }}</span>
           </div>
         </div>
       </div>
-      <div class="col-8">
+      <div class="col-9 bottom-hr">
         <div class="pt-2">
-          <span id="average-score">
+          <span class="text-white">
             {{ score['post_name'] }}</span>
         </div>
       </div>

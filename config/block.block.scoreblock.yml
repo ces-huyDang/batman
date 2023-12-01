@@ -17,7 +17,7 @@ plugin: score_block
 settings:
   id: score_block
   label: 'Score Block'
-  label_display: visible
+  label_display: '0'
   provider: blog
 visibility:
   language:
