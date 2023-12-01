@@ -25,6 +25,7 @@
         "drupal/fivestar": "^1.0@alpha",
         "drupal/paragraphs": "^1.16",
         "drupal/quicktabs": "^3.0@alpha",
+        "drupal/rules": "^3.0@alpha",
         "drupal/twig_tweak": "^3.2",
         "drush/drush": "^12.4"
     },

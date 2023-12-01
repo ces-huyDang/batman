@@ -1,18 +1,20 @@
-<div class="container-fluid">
+<div class="container-fluid bg-dark mb-5 rounded border border-white">
   {% if data.message %}
     <div class="text-center vh-100 mt-5">
       <h1>404 Not Found</h1>
       {{ data.message }}
     </div>
   {% else %}
-    <h1 class="text-left">
-      {{ data.post.title }}
-    </h1>
-    <div class="text-left">
-      <img src={{ data.post['thumbnail_uri'][0]|image_style('post_thumbnail') }}>
-      <span>
-        {{ data.post.body|raw }}
-      </span>
+    <div class="pb-5 pt-5">
+      <h1 class="text-left text-white">
+        {{ data.post.title }}
+      </h1>
+      <div class="text-left">
+        <img class="border border-white" src={{ data.post['thumbnail_uri'][0]|image_style('post_thumbnail') }}>
+        <span>
+          {{ data.post.body|raw }}
+        </span>
+      </div>
     </div>
   {% endif %}
 </div>
