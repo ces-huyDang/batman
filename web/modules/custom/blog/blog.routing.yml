@@ -54,10 +54,3 @@ blog.rating:
   requirements:
     _permission: 'access content'
 
-blog.testing:
-  path: '/test'
-  defaults:
-    _title: 'Testing'
-    _controller: '\Drupal\blog\Controller\BlogController::test'
-  requirements:
-    _permission: 'access content'

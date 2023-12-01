@@ -137,7 +137,6 @@
   $(document).ready(function () {
     characters();
     language();
-    $("#movies-block").addClass("d-none");
     // Menu Animation
     menuAnimation();
     moviesBlock();
