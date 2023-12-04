@@ -149,7 +149,6 @@ class BlogService
         $post_info['thumbnail_uri'] = $node_thumbnail_uri;
         $post_info['uid'] = $node_user->id();
         $post_info['user_name'] = $node_user->getAccountName();
-
         return $post_info;
     }
 
@@ -375,7 +374,10 @@ class BlogService
     public function getAverageScore($nid)
     {
         $node = Node::load($nid);
-        $pid = $node->get('field_average_score')->getValue()[0]['target_id'];
+        $pid = null;
+        if (!$node->get('field_average_score')->isEmpty()) {
+            $pid = $node->get('field_average_score')->getValue()[0]['target_id'];
+        }
         if (!$pid) {
             $score_info['average_score'] = null;
             $score_info['voted_users'] = null;
@@ -483,14 +485,13 @@ class BlogService
         $node_query->accessCheck(false);
         $node_query->condition('type', 'movie');
         $node_query->condition('status', 1);
-        $node_query->condition('field_category', $tid);
+        $node_query->condition('field_category', array_values($tid)[0]);
         $nodes = $node_query->execute();
         $movies_info = [];
         foreach ($nodes as $node) {
             $movie = $this->getPostInfo(Node::load($node));
             array_push($movies_info, $movie);
         }
-        $test = Node::load(5);
         return $movies_info;
     }
 }
