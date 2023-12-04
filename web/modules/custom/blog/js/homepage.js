@@ -22,7 +22,7 @@
       if (scrollPosition > element.top) {
         $("#post" + element.id).animate({ opacity: 1 }, 1500);
         $("#btn" + element.id).removeClass("btn-secondary");
-        $("#btn" + element.id).addClass("btn-light");
+        $("#btn" + element.id).addClass("btn-primary");
         element.functionCalled = true;
       }
     });
@@ -31,7 +31,7 @@
   $(document).ready(function () {
     finalPostList = getPostInformation();
     $("#btn0").removeClass("btn-secondary");
-    $("#btn0").addClass("btn-light");
+    $("#btn0").addClass("btn-primary");
     finalPostList.forEach((element) => {
       $("#post" + element.id).css("opacity", 0.3);
     });

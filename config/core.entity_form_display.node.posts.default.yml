@@ -7,10 +7,12 @@ dependencies:
     - field.field.node.posts.field_average_score
     - field.field.node.posts.field_is_featured
     - field.field.node.posts.field_meta_score
+    - field.field.node.posts.field_ra
     - field.field.node.posts.field_thumbnail_image
     - field.field.node.posts.field_users_score
     - node.type.posts
   module:
+    - fivestar
     - media_library
     - paragraphs
     - path
@@ -78,6 +80,15 @@ content:
       features:
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
+    third_party_settings: {  }
+  field_ra:
+    type: fivestar_stars
+    weight: 125
+    region: content
+    settings:
+      text_format: none
+      display_format: average
+      fivestar_widget: basic
     third_party_settings: {  }
   field_thumbnail_image:
     type: media_library_widget

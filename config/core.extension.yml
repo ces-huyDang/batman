@@ -25,6 +25,7 @@ module:
   field_ui: 0
   file: 0
   filter: 0
+  fivestar: 0
   help: 0
   history: 0
   image: 0
@@ -48,7 +49,6 @@ module:
   quicktabs: 0
   quicktabs_accordion: 0
   quicktabs_jqueryui: 0
-  rules: 0
   search: 0
   shortcut: 0
   system: 0
@@ -58,10 +58,10 @@ module:
   toolbar: 0
   tour: 0
   twig_tweak: 0
-  typed_data: 0
   update: 0
   user: 0
   views_ui: 0
+  votingapi: 0
   content_translation: 10
   views: 10
   paragraphs: 11

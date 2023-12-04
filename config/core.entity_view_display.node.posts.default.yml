@@ -7,11 +7,13 @@ dependencies:
     - field.field.node.posts.field_average_score
     - field.field.node.posts.field_is_featured
     - field.field.node.posts.field_meta_score
+    - field.field.node.posts.field_ra
     - field.field.node.posts.field_thumbnail_image
     - field.field.node.posts.field_users_score
     - node.type.posts
   module:
     - entity_reference_revisions
+    - fivestar
     - text
     - user
 id: node.posts.default
@@ -53,6 +55,16 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 109
+    region: content
+  field_ra:
+    type: fivestar_stars
+    label: above
+    settings:
+      text_format: average
+      display_format: average
+      fivestar_widget: basic
+    third_party_settings: {  }
+    weight: 105
     region: content
   field_thumbnail_image:
     type: entity_reference_entity_view

@@ -262,18 +262,13 @@ class BlogService
         $score_info = [];
         $total_score = 0;
         $score_ids = $node->get('field_users_score')->getValue();
-        if ($score_ids) {
-            foreach ($score_ids as $score_id) {
-                $paragraph = Paragraph::load($score_id['target_id']);
-                $score = $paragraph->get('field_user_score')->getValue()[0]['value'];
-                $total_score += $score;
-            }
-            $score_info['voted_users'] = count($score_ids);
-            $score_info['average_score'] = $total_score / count($score_ids);
-        } else {
-            $score_info['voted_users'] = null;
-            $score_info['average_score'] = null;
+        foreach ($score_ids as $score_id) {
+            $paragraph = Paragraph::load($score_id['target_id']);
+            $score = $paragraph->get('field_user_score')->getValue()[0]['value'];
+            $total_score += $score;
         }
+        $score_info['voted_users'] = count($score_ids);
+        $score_info['average_score'] = $total_score / count($score_ids);
         return $score_info;
     }
 

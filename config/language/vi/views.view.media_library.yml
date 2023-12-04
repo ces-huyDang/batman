@@ -10,6 +10,9 @@ display:
           action_title: 'Thao tác'
       pager:
         options:
+          tags:
+            next: ››
+            previous: ‹‹
           expose:
             items_per_page_label: 'Số mục trên một trang'
             items_per_page_options_all_label: '- Tất cả -'
@@ -60,6 +63,7 @@ display:
             alt: 'Xóa {{ tên }}'
           text: Xóa
   widget:
+    display_title: Widget
     display_options:
       arguments:
         bundle:

@@ -1,12 +1,11 @@
-uuid: 368fad26-71d5-42d0-b9d2-19eb4bbab5c2
+uuid: 85ed179c-6620-4502-975f-0e40ed1e2248
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:basic:3db771e5-737e-4777-bdea-42e9190c79d5'
+    - 'block_content:basic:971ffba9-b12e-4f8d-b2a3-2c686ec5e26f'
   module:
     - block_content
-    - language
   theme:
     - lando_blog
 id: welcometobloglando
@@ -14,21 +13,13 @@ theme: lando_blog
 region: header
 weight: 0
 provider: null
-plugin: 'block_content:3db771e5-737e-4777-bdea-42e9190c79d5'
+plugin: 'block_content:971ffba9-b12e-4f8d-b2a3-2c686ec5e26f'
 settings:
-  id: 'block_content:3db771e5-737e-4777-bdea-42e9190c79d5'
+  id: 'block_content:971ffba9-b12e-4f8d-b2a3-2c686ec5e26f'
   label: 'Welcome to Blog Lando!'
   label_display: visible
   provider: block_content
   status: true
   info: ''
   view_mode: full
-visibility:
-  language:
-    id: language
-    negate: false
-    context_mapping:
-      language: '@language.current_language_context:language_interface'
-    langcodes:
-      en: en
-      vi: vi
+visibility: {  }
