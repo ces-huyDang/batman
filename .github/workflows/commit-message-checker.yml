@@ -1,0 +1,32 @@
+name: 'Semantic Commit Message Checker'
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+
+jobs:
+  check-commit-message:
+    name: Check Commit Message
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check valid types
+        uses: gsactions/commit-message-checker@v1
+        with:
+          pattern: '(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)(\(\w+\))?:\s(\w+)'
+          error: 'Your commit message should match one of these types (build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test) in header.'
+          excludeDescription: 'true'
+          excludeTitle: 'true'
+          checkAllCommitMessages: 'true'
+          accessToken: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check valid ClickUp Id
+        uses: gsactions/commit-message-checker@v1
+        with:
+          pattern: '\s(CU(-\w+\b){0,}-\w+\b)$'
+          error: 'Your commit message must include ClickUp-Id (e.g: CU-123abc) in footer.'
+          excludeDescription: 'true'
+          excludeTitle: 'true'
+          checkAllCommitMessages: 'true'
+          accessToken: ${{ secrets.GITHUB_TOKEN }}
