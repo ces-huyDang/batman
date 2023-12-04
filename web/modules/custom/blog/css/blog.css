@@ -34,5 +34,17 @@
 }
 
 .col-hr {
-  border-right: 1px solid #C7C8C9;
+  border-right: 1px solid #c7c8c9;
+}
+
+.bottom-hr {
+  border-bottom: 1px solid #c7c8c9;
+}
+
+.movie-title>a {
+  color: white;
+}
+
+.score-hr {
+  border-top: 1px solid white;
 }

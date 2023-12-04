@@ -117,7 +117,12 @@ class BlogService
         $node_title = $node->getTitle();
         $node_created = $node->getCreatedTime();
         $node_changed = $node->get('changed')->getValue()[0]['value'];
-        $node_body = $node->get('body')->getValue()[0]['value'];
+        $node_body = null;
+        if ($node->get('body')->isEmpty()) {
+            $node_body = '';
+        } else {
+            $node_body = $node->get('body')->getValue()[0]['value'];
+        }
         // Check the content type of node to get image URI on the right field.
         if ($node->get('type')->getValue()[0]['target_id'] === "posts") {
             $node_is_featured = $node->get('field_is_featured')->getValue()[0]['value'];
@@ -262,13 +267,18 @@ class BlogService
         $score_info = [];
         $total_score = 0;
         $score_ids = $node->get('field_users_score')->getValue();
-        foreach ($score_ids as $score_id) {
-            $paragraph = Paragraph::load($score_id['target_id']);
-            $score = $paragraph->get('field_user_score')->getValue()[0]['value'];
-            $total_score += $score;
+        if ($score_ids) {
+            foreach ($score_ids as $score_id) {
+                $paragraph = Paragraph::load($score_id['target_id']);
+                $score = $paragraph->get('field_user_score')->getValue()[0]['value'];
+                $total_score += $score;
+            }
+            $score_info['voted_users'] = count($score_ids);
+            $score_info['average_score'] = $total_score / count($score_ids);
+        } else {
+            $score_info['voted_users'] = null;
+            $score_info['average_score'] = null;
         }
-        $score_info['voted_users'] = count($score_ids);
-        $score_info['average_score'] = $total_score / count($score_ids);
         return $score_info;
     }
 
@@ -470,7 +480,7 @@ class BlogService
         $tid = $term_query->execute();
         $node_query = $this->entityTypeManager->getStorage('node')
             ->getQuery();
-        $node_query->accessCheck(true);
+        $node_query->accessCheck(false);
         $node_query->condition('type', 'movie');
         $node_query->condition('status', 1);
         $node_query->condition('field_category', $tid);
@@ -480,6 +490,7 @@ class BlogService
             $movie = $this->getPostInfo(Node::load($node));
             array_push($movies_info, $movie);
         }
+        $test = Node::load(5);
         return $movies_info;
     }
 }

@@ -53,7 +53,7 @@
     scoreBtn.off("mouseenter", mouseEnter);
     $(".rate-btn").prop("disabled", true);
     const confirmBtnGroup =
-      '<div class="btn-group mt-3" role="group">' +
+      '<div class="btn-group pt-3" role="group">' +
       '<button id="cancel" type="button" class="btn btn-light border border-dark">No</button>' +
       '<button id="confirm" type="button" class="btn ' +
       globalBtnColor +
@@ -132,7 +132,7 @@
           $("#user-score").find(".col-9").hide();
           $("#user-score").find(".col-3").hide();
           $("#user-score").append(
-            '<div id="data-message" class="col-12">' + message + "</div>"
+            '<div id="data-message" class="col-12 text-white">' + message + "</div>"
           );
         } else {
           let squareColor;
