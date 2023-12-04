@@ -149,7 +149,6 @@ class BlogService
         $post_info['thumbnail_uri'] = $node_thumbnail_uri;
         $post_info['uid'] = $node_user->id();
         $post_info['user_name'] = $node_user->getAccountName();
-
         return $post_info;
     }
 
