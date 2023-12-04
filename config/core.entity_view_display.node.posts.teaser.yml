@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.posts.field_average_score
     - field.field.node.posts.field_is_featured
     - field.field.node.posts.field_meta_score
+    - field.field.node.posts.field_ra
     - field.field.node.posts.field_thumbnail_image
     - field.field.node.posts.field_users_score
     - node.type.posts
@@ -36,6 +37,7 @@ hidden:
   field_average_score: true
   field_is_featured: true
   field_meta_score: true
+  field_ra: true
   field_thumbnail_image: true
   field_users_score: true
   langcode: true
