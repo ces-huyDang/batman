@@ -22,7 +22,7 @@ class MetaScoreBlock extends BlockBase implements ContainerFactoryPluginInterfac
    *
    * @var \Drupal\blog\Services\BlogService
    */
-  protected $blog_service;
+  protected $blogService;
 
   /**
    * {@inheritDoc}
@@ -38,7 +38,7 @@ class MetaScoreBlock extends BlockBase implements ContainerFactoryPluginInterfac
    */
   public function __construct(BlogService $blog_service, array $configuration, $plugin_id, $plugin_definition,) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
-    $this->blog_service = $blog_service;
+    $this->$blogService = $blog_service;
   }
 
   /**
@@ -71,11 +71,9 @@ class MetaScoreBlock extends BlockBase implements ContainerFactoryPluginInterfac
 
   /**
    * {@inheritDoc}
-   *
-   * @return mixed
    */
   public function build() {
-    $scores = $this->blog_service->getMetaScores();
+    $scores = $this->$blogService->getMetaScores();
     return [
       '#theme' => 'meta_score',
       '#data' => [

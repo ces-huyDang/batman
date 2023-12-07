@@ -22,7 +22,7 @@ class MoviesBlock extends BlockBase implements ContainerFactoryPluginInterface {
    *
    * @var \Drupal\blog\Services\BlogService
    */
-  protected $blog_service;
+  protected $blogService;
 
   /**
    * {@inheritDoc}
@@ -39,11 +39,11 @@ class MoviesBlock extends BlockBase implements ContainerFactoryPluginInterface {
   public function __construct(
         BlogService $blog_service,
         array $configuration,
-  $plugin_id,
+        $plugin_id,
         $plugin_definition
     ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
-    $this->blog_service = $blog_service;
+    $this->blogService = $blog_service;
   }
 
   /**
@@ -76,13 +76,11 @@ class MoviesBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
    * {@inheritDoc}
-   *
-   * @return mixed
    */
   public function build() {
-    $movies = $this->blog_service->getSeriesMovie();
-    $streaming_sites = $this->blog_service->getTaxonomyTerms('streaming_site');
-    $scores = $this->blog_service->getMetaScores();
+    $movies = $this->blogService->getSeriesMovie();
+    $streaming_sites = $this->blogService->getTaxonomyTerms('streaming_site');
+    $scores = $this->blogService->getMetaScores();
     return [
       '#theme' => 'movies_block',
       '#data' => [

@@ -1,0 +1,6 @@
+'access blog content':
+  title: 'Access Basic Content'
+  description: 'Allow authenticated user to read and rate posts or movies'
+'access JSON data':
+  title: 'Access JSON Data'
+  description: 'Only enable for Administrator!'

@@ -4,7 +4,7 @@ blog.index:
     _title: 'Blogs Index'
     _controller: '\Drupal\blog\Controller\BlogController::blogs'
   requirements:
-    _permission: 'access content'
+    _permission: 'access blog content'
     
 blog.charaters:
   path: '/characters'
@@ -12,7 +12,7 @@ blog.charaters:
     _title: 'Characters'
     _controller: '\Drupal\blog\Controller\BlogController::characters'
   requirements:
-    _permission: 'access content'
+    _permission: 'access JSON data'
 
 blog.carousel:
   path: '/carousel'
@@ -20,7 +20,7 @@ blog.carousel:
     _title: 'Carousel'
     _controller: '\Drupal\blog\Controller\BlogController::carousel'
   requirements:
-    _permission: 'access content'
+    _permission: 'access JSON data'
 
 blog.details:
   path: '/blog/{nid}'
@@ -28,7 +28,7 @@ blog.details:
     _title: 'Blog detail'
     _controller: '\Drupal\blog\Controller\BlogController::details'
   requirements:
-    _permission: 'access content'
+    _permission: 'access blog content'
 
 blog.score:
   path: '/average-score/{nid}'
@@ -36,7 +36,7 @@ blog.score:
     _title: 'Post score'
     _controller: '\Drupal\blog\Controller\BlogController::averageScore'
   requirements:
-    _permission: 'access content'
+    _permission: 'access blog content'
 
 blog.current_user:
   path: '/current-user'
@@ -44,7 +44,7 @@ blog.current_user:
     _title: 'Current User'
     _controller: '\Drupal\blog\Controller\BlogController::currentUser'
   requirements:
-    _permission: 'access content'
+    _permission: 'access JSON data'
 
 blog.rating:
   path: '/rate/{score_info}'
@@ -52,4 +52,4 @@ blog.rating:
     _title: 'Score Rating'
     _controller: '\Drupal\blog\Controller\BlogController::rate'
   requirements:
-    _permission: 'access content'
+    _permission: 'access JSON data'

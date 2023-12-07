@@ -32,7 +32,7 @@ class BlogService {
    * Constructor for EntityTypeManagerInterface.
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
-   *   the entity type manager.
+   *   The entity type manager.
    */
   public function __construct(EntityTypeManagerInterface $entityTypeManager) {
     $this->entityTypeManager = $entityTypeManager;
@@ -42,9 +42,10 @@ class BlogService {
    * Get all content of a specific content type.
    *
    * @param string $content_type
-   *   the machine name of the content type.
+   *   The machine name of the content type.
    *
-   * @return array an array of content entities of the specified content type.
+   * @return array
+   *   An array of content entities of the specified content type.
    */
   public function getAllContentByType($content_type) {
     $query = $this->entityTypeManager->getStorage('node')->getQuery();
@@ -61,11 +62,12 @@ class BlogService {
    * Get the images src by Id (URI/URL)
    *
    * @param array $field_images
-   *   field images of an Entity.
+   *   Field images of an Entity.
    * @param string $src_type
-   *   "uri" or "url.
+   *   Src type: "uri" or "url.
    *
-   * @return array $images_src.
+   * @return array
+   *   $images_src.
    */
   public function getImagesSrc($field_images, $src_type) {
     if ($src_type !== "url" && $src_type !== "uri") {
@@ -83,6 +85,7 @@ class BlogService {
       else {
         $image_url = \Drupal::service('file_url_generator')
           ->generateAbsoluteString($image_uri);
+
         array_push($images_src, $image_url);
       }
     }
@@ -93,9 +96,10 @@ class BlogService {
    * Create a new array contains all needed Post information.
    *
    * @param \Drupal\node\Entity\Node $node
-   *   nodes of Content type: Posts.
+   *   Nodes of Content type: Posts.
    *
-   * @return array information of Post.
+   * @return array
+   *   Information of Post.
    */
   public function getPostInfo($node) {
     $post_info = [];
@@ -145,7 +149,8 @@ class BlogService {
   /**
    * Get Posts list to display on index.
    *
-   * @return array list of Post.
+   * @return array
+   *   List of Post.
    */
   public function getPostList() {
     $nodes = $this->getAllContentByType('posts');
@@ -163,7 +168,8 @@ class BlogService {
    * @param string $vocabulary_machine_name
    *   The vocabulary machine name.
    *
-   * @return array an array of term info.
+   * @return array
+   *   An array of term info.
    */
   public function getTaxonomyTerms($vocabulary_machine_name) {
     $query = $this->entityTypeManager->getStorage('taxonomy_term')->getQuery();
@@ -181,7 +187,8 @@ class BlogService {
    * @param array $terms
    *   Terms from db.
    *
-   * @return array information of Terms.
+   * @return array
+   *   Information of Terms.
    */
   public function getTermsInfo($terms) {
     $terms_list = [];
@@ -199,7 +206,8 @@ class BlogService {
   /**
    * Create a new array contains all carousel images info.
    *
-   * @return array|null information carousel images.
+   * @return array|null
+   *   Information carousel images.
    */
   public function getCarouselImagesUrl() {
     $content = $this->getAllContentByType('carousel_images');
@@ -229,7 +237,8 @@ class BlogService {
    * @param string $nid
    *   Nid from Controller.
    *
-   * @return array|null a Post with matched Id || null.
+   * @return array|null
+   *   A Post with matched Id || null.
    */
   public function getPostById(string $nid) {
     if (!is_numeric($nid) || empty($nid)) {
@@ -255,7 +264,8 @@ class BlogService {
    * @param string $nid
    *   Id from Controller.
    *
-   * @return array|null Post's score info.
+   * @return array|null
+   *   Post's score info.
    */
   public function calculateAverageScore(string $nid) {
     if (!is_numeric($nid) || empty($nid)) {
@@ -290,12 +300,14 @@ class BlogService {
    * @param string $nid
    *   Id from Controller.
    *
-   * @return array|null voted uids
+   * @return array|null
+   *   Voted uids
    */
   public function getVotedUserIds(string $nid) {
     if (!is_numeric($nid) || empty($nid)) {
       return NULL;
     }
+
     $node = Node::load($nid);
     if (!$node) {
       return NULL;
@@ -319,7 +331,8 @@ class BlogService {
    * @param string $score_info
    *   Score info from Controller.
    *
-   * @return string an annoucement.
+   * @return string
+   *   An annoucement.
    */
   public function rating($score_info) {
     $message = NULL;
@@ -377,7 +390,8 @@ class BlogService {
    * @param string $nid
    *   Id from Controller.
    *
-   * @return array|null Post's field average score.
+   * @return array|null
+   *   Post's field average score.
    */
   public function getAverageScore($nid) {
     if (!is_numeric($nid) || empty($nid)) {
@@ -406,13 +420,13 @@ class BlogService {
   /**
    * Get a list of posts and its average score.
    *
-   * @return array Posts list with average score.
+   * @return array
+   *   Posts list with average score.
    */
   public function getAverageScores() {
     $score_list = [];
     $posts_list = $this->getAllContentByType("posts");
     foreach ($posts_list as $post) {
-
       $score = $this->calculateAverageScore($post->id());
       if (!$score['average_score']) {
         continue;
@@ -433,7 +447,8 @@ class BlogService {
    * @param string $nid
    *   Id from Controller.
    *
-   * @return array|null Post's meta score info.
+   * @return array|null
+   *   Post's meta score info.
    */
   public function calculateMetaScore(string $nid) {
     if (!is_numeric($nid) || empty($nid)) {
@@ -462,7 +477,8 @@ class BlogService {
   /**
    * Get a list of posts and its meta score.
    *
-   * @return array Posts list with meta score.
+   * @return array
+   *   Posts list with meta score.
    */
   public function getMetaScores() {
     $score_list = [];
@@ -489,7 +505,8 @@ class BlogService {
   /**
    * Get all Movies with Category: Series .
    *
-   * @return array Movies list with category: Series
+   * @return array
+   *   Movies list with category: Series
    */
   public function getSeriesMovie() {
     $term_name = 'Series';

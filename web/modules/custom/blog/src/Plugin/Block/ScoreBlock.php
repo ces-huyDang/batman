@@ -22,7 +22,7 @@ class ScoreBlock extends BlockBase implements ContainerFactoryPluginInterface {
    *
    * @var \Drupal\blog\Services\BlogService
    */
-  protected $blog_service;
+  protected $blogService;
 
   /**
    * {@inheritDoc}
@@ -38,7 +38,7 @@ class ScoreBlock extends BlockBase implements ContainerFactoryPluginInterface {
    */
   public function __construct(BlogService $blog_service, array $configuration, $plugin_id, $plugin_definition,) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
-    $this->blog_service = $blog_service;
+    $this->blogService = $blog_service;
   }
 
   /**
@@ -71,8 +71,6 @@ class ScoreBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
    * {@inheritDoc}
-   *
-   * @return mixed
    */
   public function build() {
     return [

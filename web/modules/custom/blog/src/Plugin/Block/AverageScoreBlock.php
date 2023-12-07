@@ -22,7 +22,7 @@ class AverageScoreBlock extends BlockBase implements ContainerFactoryPluginInter
    *
    * @var \Drupal\blog\Services\BlogService
    */
-  protected $blog_service;
+  protected $blogService;
 
   /**
    * {@inheritDoc}
@@ -38,7 +38,7 @@ class AverageScoreBlock extends BlockBase implements ContainerFactoryPluginInter
    */
   public function __construct(BlogService $blog_service, array $configuration, $plugin_id, $plugin_definition,) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
-    $this->blog_service = $blog_service;
+    $this->$blogService = $blog_service;
   }
 
   /**
@@ -71,11 +71,9 @@ class AverageScoreBlock extends BlockBase implements ContainerFactoryPluginInter
 
   /**
    * {@inheritDoc}
-   *
-   * @return mixed
    */
   public function build() {
-    $scores = $this->blog_service->getAverageScores();
+    $scores = $this->$blogService->getAverageScores();
     return [
       '#theme' => 'average_score',
       '#data' => [

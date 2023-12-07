@@ -1,44 +1,69 @@
-# This file contains default .gitignore rules. To use it, copy it to .gitignore,
-# and it will cause files like your settings.php and user-uploaded files to be
-# excluded from Git version control. This is a common strategy to avoid
-# accidentally including private information in public repositories and patch
-# files.
+# gitignore template for Drupal 8 projects
 #
-# Because .gitignore can be specific to your site, this file has a different
-# name; updating Drupal core will not override your custom .gitignore file.
+# earlier versions of Drupal are tracked in `community/PHP/`
+#
+# follows official upstream conventions:
+# https://www.drupal.org/docs/develop/using-composer
 
-# Ignore core when managing all of a project's dependencies with Composer
-# including Drupal core.
-# core
+# Ignore configuration files that may contain sensitive information
+/web/sites/*/*settings*.php
+/web/sites/*/*services*.yml
 
-# Ignore dependencies that are managed with Composer.
-# Generally you should only ignore the root vendor directory. It's important
-# that core/assets/vendor and any other vendor directories within contrib or
-# custom module, theme, etc., are not ignored unless you purposely do so.
-/vendor/
+# Ignore paths that may contain user-generated content
+/web/sites/*/files
+/web/sites/*/public
+/web/sites/*/private
+/web/sites/*/files-public
+/web/sites/*/files-private
 
-# Ignore configuration files that may contain sensitive information.
-sites/*/settings*.php
-sites/*/services*.yml
+# Ignore paths that may contain temporary files
+/web/sites/*/translations
+/web/sites/*/tmp
+/web/sites/*/cache
 
-# Ignore paths that contain user-generated content.
-sites/*/files
-sites/*/private
+# Ignore drupal core (if not versioning drupal sources)
+/web/vendor
+/web/core
+/web/modules/README.txt
+/web/profiles/README.txt
+/web/sites/development.services.yml
+/web/sites/example.settings.local.php
+/web/sites/example.sites.php
+/web/sites/README.txt
+/web/themes/README.txt
+/web/.csslintrc
+/web/.editorconfig
+/web/.eslintignore
+/web/.eslintrc.json
+/web/.gitattributes
+/web/.htaccess
+/web/.ht.router.php
+/web/autoload.php
+/web/composer.json
+/web/composer.lock
+/web/example.gitignore
+/web/index.php
+/web/INSTALL.txt
+/web/LICENSE.txt
+/web/README.txt
+/web/robots.txt
+/web/update.php
+/web/web.config
+/web/sites/simpletest
+/web/modules/contrib
 
-# Ignore multi-site test environment.
-sites/simpletest
+# Ignore vendor dependencies and scripts
+/vendor
+/composer.phar
+/composer
+/robo.phar
+/robo
+/drush.phar
+/drush
+/drupal.phar
+/drupal
 
-# If you prefer to store your .gitignore file in the sites/ folder, comment
-# or delete the previous settings and uncomment the following ones, instead.
-
-# Ignore configuration files that may contain sensitive information.
-# */settings*.php
-
-# Ignore paths that contain user-generated content.
-# */files
-# */private
-
-# Ignore multi-site test environment.
-# simpletest
 xdebug.ini
-.lando.yml
+.vscode
+/web/config_dev
+/web/config_test

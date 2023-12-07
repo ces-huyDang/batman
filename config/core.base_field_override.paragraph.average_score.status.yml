@@ -1,0 +1,22 @@
+uuid: e69873b7-6cd7-4d47-b5d6-7268857c7e26
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.average_score
+id: paragraph.average_score.status
+field_name: status
+entity_type: paragraph
+bundle: average_score
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

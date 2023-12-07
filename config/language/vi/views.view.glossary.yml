@@ -12,9 +12,6 @@ display:
           label: 'Lập cập nhật cuối'
       pager:
         options:
-          tags:
-            next: ››
-            previous: ‹‹
           expose:
             items_per_page_label: 'Số mục trên một trang'
             items_per_page_options_all_label: '- Tất cả -'
