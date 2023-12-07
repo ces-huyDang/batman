@@ -17,6 +17,7 @@
     "require": {
         "composer/installers": "^2.0",
         "drupal/admin_toolbar": "^3.4",
+        "drupal/advagg": "^6.0@alpha",
         "drupal/config_filter": "^2.6",
         "drupal/config_split": "^2.0",
         "drupal/core-composer-scaffold": "^10.0",
@@ -26,7 +27,9 @@
         "drupal/entity_browser": "^2.9",
         "drupal/jquery_ui_accordion": "^2.0",
         "drupal/paragraphs": "^1.16",
+        "drupal/paranoia": "^1.0@RC",
         "drupal/quicktabs": "^3.0@alpha",
+        "drupal/seckit": "^2.0",
         "drupal/security_review": "^2.0",
         "drupal/twig_tweak": "^3.2",
         "drush/drush": "^12.4"

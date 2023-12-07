@@ -48,3 +48,8 @@
 .score-hr {
   border-top: 1px solid white;
 }
+
+.wraping-image {
+  float: left;
+  margin-right: 10px;
+}

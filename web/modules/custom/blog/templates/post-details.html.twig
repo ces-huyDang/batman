@@ -8,12 +8,12 @@
 {% else %}
   <div class="container-fluid bg-dark mb-5 rounded border border-white">
     <div class="pb-5 pt-5">
-      <h1 class="text-left text-white">
+      <h1 class="text-center text-white pb-2">
         {{ data.post.title }}
       </h1>
-      <div class="text-left">
-        <img class="border border-white" src={{ data.post['thumbnail_uri'][0]|image_style('post_thumbnail') }}>
-        <span>
+      <div class="text-left pt-2">
+        <img class="border border-white wraping-image" src={{ data.post['thumbnail_uri'][0]|image_style('post_thumbnail') }}>
+        <span class="text-white">
           {{ data.post.body|raw }}
         </span>
       </div>
