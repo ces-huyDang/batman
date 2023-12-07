@@ -1,0 +1,22 @@
+uuid: 37fc3ae0-2e5a-48ac-89eb-31fd8adeb0ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.meta_score
+id: paragraph.meta_score.status
+field_name: status
+entity_type: paragraph
+bundle: meta_score
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

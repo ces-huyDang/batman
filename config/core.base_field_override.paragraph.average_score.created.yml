@@ -1,0 +1,18 @@
+uuid: 7052338e-5647-414a-9d19-c5bae00ebe19
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.average_score
+id: paragraph.average_score.created
+field_name: created
+entity_type: paragraph
+bundle: average_score
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

@@ -7,6 +7,16 @@ services:
     xdebug: true
     config:
       php: xdebug.ini
+    overrides:
+      environment:
+        SIMPLETEST_BASE_URL: "https://drupal10-blog.lndo.site/"
+        SIMPLETEST_DB: "http://db-blog.lndo.site/"
+        MINK_DRIVER_ARGS_WEBDRIVER: '["chrome", {"browserName":"chrome","chromeOptions":{"args":["--disable-gpu","--headless"]}}, "http://chrome:9515"]'
+  chrome:
+    type: compose
+    services:
+      image: drupalci/webdriver-chromedriver:production
+      command: chromedriver --log-path=/tmp/chromedriver.log --verbose --whitelisted-ips=
   phpmyadmin:
     type: phpmyadmin
     overrides:
@@ -14,6 +24,16 @@ services:
         UPLOAD_LIMIT: 25600000
     hosts:
       - database
+tooling:
+  test:
+    service: appserver
+    cmd: "php /app/vendor/bin/phpunit -c phpunit.xml"
+  phpcs:
+    service: appserver
+    cmd: "php /app/vendor/bin/phpcs --standard=Drupal --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md,yml"
+  phpcbf:
+    service: appserver
+    cmd: "php /app/vendor/bin/phpcbf --standard=Drupal --extensions=php,module,inc,install,test,profile,theme,css,info,txt,md,yml"      
 proxy:
   phpmyadmin:
     - db-blog.lndo.site

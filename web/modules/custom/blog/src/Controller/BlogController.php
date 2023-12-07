@@ -23,7 +23,7 @@ class BlogController extends ControllerBase {
    *
    * @var \Drupal\blog\Services\BlogService
    */
-  protected $blog_service;
+  protected $blogService;
 
   /**
    * Constructs a new instance of the BlogService class.
@@ -32,14 +32,14 @@ class BlogController extends ControllerBase {
    *   to use method from BlogService.
    */
   public function __construct(BlogService $blog_service) {
-    $this->blog_service = $blog_service;
+    $this->$blogService = $blog_service;
   }
 
   /**
    * {@inheritdoc}
    *
    * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
-   *   implemented by service container classes.
+   *   Implemented by service container classes.
    *
    * @return static
    */
@@ -56,7 +56,7 @@ class BlogController extends ControllerBase {
    *   Arrays of Posts information.
    */
   public function blogs() {
-    $posts = $this->blog_service->getPostList();
+    $posts = $this->$blogService->getPostList();
     return [
       '#theme' => 'blogs',
       '#data' => [
@@ -75,7 +75,7 @@ class BlogController extends ControllerBase {
    *   Arrays of Characters terms information.
    */
   public function characters() {
-    $terms = $this->blog_service->getTaxonomyTerms('characters');
+    $terms = $this->$blogService->getTaxonomyTerms('characters');
     return new JsonResponse($terms);
   }
 
@@ -86,7 +86,7 @@ class BlogController extends ControllerBase {
    *   Arrays of images uri.
    */
   public function carousel() {
-    $images = $this->blog_service->getCarouselImagesUrl();
+    $images = $this->$blogService->getCarouselImagesUrl();
     if (!isset($images)) {
       return new JsonResponse(['error' => 'Internal Server Error'], 500);
     }
@@ -103,7 +103,7 @@ class BlogController extends ControllerBase {
    *   Post with matched id.
    */
   public function details($nid) {
-    $post = $this->blog_service->getPostById($nid);
+    $post = $this->$blogService->getPostById($nid);
     if (!isset($post)) {
       $message = 'Look like the post you looking for does not exists.';
       return [
@@ -137,7 +137,7 @@ class BlogController extends ControllerBase {
    *   Score info with matched id.
    */
   public function averageScore($nid) {
-    $score = $this->blog_service->getAverageScore($nid);
+    $score = $this->$blogService->getAverageScore($nid);
     if (!isset($score)) {
       return new JsonResponse(['error' => 'Internal Server Error'], 500);
     }
@@ -160,13 +160,13 @@ class BlogController extends ControllerBase {
    * Add rating score for post.
    *
    * @param string $score_info
-   *   score information path.
+   *   Score information path.
    *
    * @return \Symfony\Component\HttpFoundation\JsonResponse
    *   Response an annoucement.
    */
   public function rate($score_info) {
-    $message = $this->blog_service->rating($score_info);
+    $message = $this->$blogService->rating($score_info);
     return new JsonResponse($message);
   }
 

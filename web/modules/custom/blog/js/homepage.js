@@ -18,7 +18,8 @@
   function createAnimation(postList) {
     var scrollPosition = window.scrollY;
     postList.forEach((element) => {
-      if (element.functionCalled === true) return;
+      if (element.functionCalled === true) { return;
+      }
       if (scrollPosition > element.top) {
         $("#post" + element.id).animate({ opacity: 1 }, 1500);
         $("#btn" + element.id).removeClass("btn-secondary");

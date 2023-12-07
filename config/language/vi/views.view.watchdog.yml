@@ -1,4 +1,3 @@
-label: Watchdog
 description: 'Các thông báo gần đây'
 display:
   default:
@@ -22,9 +21,6 @@ display:
           label: 'Thao tác'
       pager:
         options:
-          tags:
-            next: ››
-            previous: ‹‹
           expose:
             items_per_page_label: 'Số mục trên một trang'
             items_per_page_options_all_label: '- Tất cả -'

@@ -1,0 +1,18 @@
+uuid: ef7d69b1-f844-4359-a78e-e22c2c7c0478
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.meta_score
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.meta_score
+target_entity_type_id: paragraph
+target_bundle: meta_score
+default_langcode: site_default
+language_alterable: false

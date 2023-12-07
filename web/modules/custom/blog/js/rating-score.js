@@ -51,7 +51,7 @@
     const scoreBtn = $(".rate-btn");
     scoreBtn.off("mouseout", mouseOut);
     scoreBtn.off("mouseenter", mouseEnter);
-    $(".rate-btn").prop("disabled", true);
+    $(".rate-btn").prop("disabled", TRUE);
     const confirmBtnGroup =
       '<div class="btn-group pt-3" role="group">' +
       '<button id="cancel" type="button" class="btn btn-light border border-dark">No</button>' +

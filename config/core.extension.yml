@@ -25,7 +25,6 @@ module:
   field_ui: 0
   file: 0
   filter: 0
-  fivestar: 0
   help: 0
   history: 0
   image: 0
@@ -50,6 +49,7 @@ module:
   quicktabs_accordion: 0
   quicktabs_jqueryui: 0
   search: 0
+  security_review: 0
   shortcut: 0
   system: 0
   taxonomy: 0
@@ -61,7 +61,6 @@ module:
   update: 0
   user: 0
   views_ui: 0
-  votingapi: 0
   content_translation: 10
   views: 10
   paragraphs: 11
