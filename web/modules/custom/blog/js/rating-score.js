@@ -132,7 +132,9 @@
           $("#user-score").find(".col-9").hide();
           $("#user-score").find(".col-3").hide();
           $("#user-score").append(
-            '<div id="data-message" class="col-12 text-white">' + message + "</div>"
+            '<div id="data-message" class="col-12 text-white">' +
+              message +
+              "</div>"
           );
         } else {
           let squareColor;
@@ -152,10 +154,10 @@
           $("#square").addClass(squareColor);
           $("#average-score").append(average_score);
         }
+        $("#block-scoreblock").removeClass("d-none");
       },
       error: function () {
         console.error("Failed to retrieve dynamic data.");
-        $("#score").remove();
       },
     });
   }
