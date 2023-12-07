@@ -70,6 +70,7 @@
             '<div class="slide-image"><img src="' + item.url + '"></div>';
           carousel.append(slide);
         });
+        $("#carousel-container").removeClass("d-none");
       },
       error: function () {
         console.error("Failed to retrieve dynamic data.");

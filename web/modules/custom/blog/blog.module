@@ -5,52 +5,52 @@
  * Primary module hooks for Blog module.
  */
 
- /**
-  * Implements hook_theme() for main pages.
-  */
- function blog_theme() {
-    return [
-        'blogs' => [
-            'template' => 'blogs',
-            'variables' => [
-              'data' => [],
-            ],
-          ],
-        'carousel' => [
-            'template'=> 'carousel',
-            'variables' => [
-              'data' => [],
-            ],
-          ],
-        'score' => [
-            'template'=> 'score-rating',
-            'variables' => [
-              'data' => [],
-            ],
-          ],
-        'post_details' => [
-            'template'=> 'post-details',
-            'variables' => [
-              'data' => [],
-            ],
-          ],
-        'average_score' => [
-            'template'=> 'score-block',
-            'variables' => [
-              'data' => [],
-            ],
-          ],
-        'meta_score' => [
-            'template'=> 'score-block',
-            'variables' => [
-              'data' => [],
-            ],
-          ],
-        'movies_block' => [
-            'template'=> 'movies-block',
-            'variables' => [
-              'data' => [],
-            ],
-          ],
-        ];       
- }
+/**
+ * Implements hook_theme() for main pages.
+ */
+function blog_theme() {
+  return [
+    'blogs' => [
+      'template' => 'blogs',
+      'variables' => [
+        'data' => [],
+      ],
+    ],
+    'carousel' => [
+      'template' => 'carousel',
+      'variables' => [
+        'data' => [],
+      ],
+    ],
+    'score' => [
+      'template' => 'score-rating',
+      'variables' => [
+        'data' => [],
+      ],
+    ],
+    'post_details' => [
+      'template' => 'post-details',
+      'variables' => [
+        'data' => [],
+      ],
+    ],
+    'average_score' => [
+      'template' => 'score-block',
+      'variables' => [
+        'data' => [],
+      ],
+    ],
+    'meta_score' => [
+      'template' => 'score-block',
+      'variables' => [
+        'data' => [],
+      ],
+    ],
+    'movies_block' => [
+      'template' => 'movies-block',
+      'variables' => [
+        'data' => [],
+      ],
+    ],
+  ];
+}

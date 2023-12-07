@@ -1,10 +1,12 @@
-<div class="container-fluid bg-dark mb-5 rounded border border-white">
-  {% if data.message %}
-    <div class="text-center vh-100 mt-5">
+{% if data.message %}
+  <div class="container-fluid vh-100 pt-5">
+    <div class="text-center text-white pb-5 pt-5 border border-white rounded">
       <h1>404 Not Found</h1>
       {{ data.message }}
     </div>
-  {% else %}
+  </div>
+{% else %}
+  <div class="container-fluid bg-dark mb-5 rounded border border-white">
     <div class="pb-5 pt-5">
       <h1 class="text-left text-white">
         {{ data.post.title }}
@@ -16,5 +18,5 @@
         </span>
       </div>
     </div>
-  {% endif %}
-</div>
+  </div>
+{% endif %}
