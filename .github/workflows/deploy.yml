@@ -1,57 +1,30 @@
-## https://medium.com/swlh/pantheon-and-github-actions-automated-deployments-via-github-actions-c245aa954797
-name: Deploy to Pantheon
+name: Deploy Master to Pantheon
 on:
   push:
     branches:
       - 'main'
 jobs:
   build:
-    name: Build and push to Pantheon
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - id: setup-runner
-        name: Setup Runner
-        uses: ./.github/actions/setup-runner
-        with:
-          pantheon_ssh_key: ${{ secrets.PANTHEON_SSH_KEY }}
-          ssh_config: ${{ secrets.SSH_CONFIG }}
-          pantheon_machine_token: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
-          php_version: '7.4'
-          composer_version: 'v1'
-          terminus_version: '^2.0'
-          node_version: '10.x'
-
-      - name: Composer Install Dependencies
-        run: composer install --optimize-autoloader --no-dev --prefer-dist --no-progress --no-suggest
-
-      ## Build Theme
-      - name: Build Theme Artifacts
-        run: |
-          cd web/themes/custom/crown
-          npm install
-
-      ## Prepare for Pantheon
-      - name: Prepare for Pantheon
-        run: find ./web -type d -name ".git" | xargs rm -fr
-
-      ## Deploy
-      - name: Deploy to Pantheon
-        env:
-          pantheon_site: 'crown-testing-platform'
-          pantheon_env: 'dev'
-        run: |
-          commit_message=$(git log -1 --pretty=%B)
-          git remote -v
-          git config user.name "$(git --no-pager log --format=format:'%an' -n 1)"
-          git config user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
-          terminus build:env:push $pantheon_site.$pantheon_env --message="${{ github.actor }}: CI Deployment for: $commit_message"
-
-      ## Terminus
-      - name: Terminus Drush Updates
-        env:
-          pantheon_site: 'crown-testing-platform'
-          pantheon_env: 'dev'
-        run: |
-          terminus -n drush $pantheon_site.$pantheon_env -- deploy -y
-          terminus -n env:clear-cache $pantheon_site.$pantheon_env
+    - uses: actions/checkout@v1
+    - uses: shimataro/ssh-key-action@v2
+      with:
+        key: ${{ secrets.PANTHEON_SSH_KEY }}
+        config: ${{ secrets.SSH_CONFIG }}
+        known_hosts: ${{ secrets.KNOWN_HOSTS }}
+    - name: Installing Terminus
+      uses: kopepasah/setup-pantheon-terminus@master
+      with:
+        pantheon-machine-token: ${{ secrets.PANTHEON_MACHINE_TOKEN }}
+    - name: deployer
+      env:
+        pantheon_repo: '${{ secrets.PANTHEON_REPO }}'
+        pantheon_site_name: '${{ secrets.PANTHEON_SITE_NAME }}'
+      run: |
+        echo ${{ secrets.KNOWN_HOSTS }}
+        git remote add pantheon $pantheon_repo
+        git push pantheon HEAD:master -f
+        commit_message=$(git log -1 --pretty=%B)
+        terminus env:deploy $pantheon_site_name.test --note="Automated deploy: $commit_message"
+        terminus env:deploy $pantheon_site_name.live --note="Automated deploy: $commit_message"
