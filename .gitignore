@@ -51,6 +51,22 @@
 /web/web.config
 /web/sites/simpletest
 /web/modules/contrib
+/web/themes/contrib/
+/web/profiles/contrib/
+/web/libraries/
+/web/private/scripts/quicksilver
+/web/sites/*/files
+/web/sites/*/private
+/web/sites/*/settings.local.php
+/web/sites/*/services*.yml
+!/web/sites/*/services.pantheon.*.yml
+!/web/sites/*/services.yml
+
+/.editorconfig
+/.gitattributes
+/web/**/.gitignore
+/.drush-lock-update
+#/.env
 
 # Ignore vendor dependencies and scripts
 /vendor
