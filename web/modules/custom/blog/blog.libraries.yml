@@ -21,3 +21,16 @@ details:
     component:
       css/blog.css: {}
       css/normalize.css: {}
+
+form:
+  js:
+    js/dropdown-menu.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupal.form
+    - core/once
+  css:
+    component:
+      css/blog.css: {}
+      css/normalize.css: {}

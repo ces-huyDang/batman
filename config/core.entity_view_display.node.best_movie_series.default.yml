@@ -1,0 +1,29 @@
+uuid: 691816ab-3b22-4840-8e83-7d25c91f2b5f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.best_movie_series.field_movies
+    - node.type.best_movie_series
+  module:
+    - user
+id: node.best_movie_series.default
+targetEntityType: node
+bundle: best_movie_series
+mode: default
+content:
+  field_movies:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

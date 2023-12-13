@@ -1,0 +1,31 @@
+uuid: d2a1881b-b03b-4ca3-ba5c-7968af7ea76a
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: CgjKrimMTwQLluUztd3QSleqDmulTMOuotcztsnZgbw
+id: user_sessions_all
+label: 'All active sessions'
+description: 'All active sessions of logged in and anonymous users without logout'
+category: 'User activity'
+plugin_id: database_aggregator
+result_class: null
+value_label: 'Active sessions'
+value_type: number
+caching_time: null
+settings:
+  table: sessions
+  time_interval_field: timestamp
+  time_interval_value: 86400
+  history_status: true
+  conditions:
+    -
+      field: uid
+      value: '0'
+      operator: '!='
+  verbose_fields:
+    - uid
+    - hostname
+    - timestamp
+thresholds:
+  type: none

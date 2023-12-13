@@ -1,0 +1,23 @@
+uuid: 22847b9a-4e06-4f67-ae80-850b906f8e65
+langcode: en
+status: true
+dependencies:
+  module:
+    - automated_cron
+_core:
+  default_config_hash: Of_tt9gViZLwyNYPuIJHP12gvStnOYRcy2MLsB2zLxk
+id: core_cron_safe_threshold
+label: 'Cron safe threshold enabled'
+description: 'Cron safe threshold (Poormanscron) is enabled'
+category: Cron
+plugin_id: config_value
+result_class: null
+value_label: null
+value_type: bool
+caching_time: null
+settings:
+  config: automated_cron.settings
+  key: interval
+  value: '0'
+thresholds:
+  type: none

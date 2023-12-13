@@ -1,0 +1,21 @@
+uuid: a923bd83-94ae-461e-8827-678e94bec5a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_movies
+    - node.type.best_movie_series
+id: node.best_movie_series.field_movies
+field_name: field_movies
+entity_type: node
+bundle: best_movie_series
+label: movies
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings: {  }
+field_type: entity_reference

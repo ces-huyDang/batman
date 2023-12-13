@@ -1,0 +1,20 @@
+uuid: 5a0d1498-2c20-4d78-866b-1777403a3df6
+langcode: en
+status: true
+dependencies:
+  module:
+    - paranoia
+id: core_requirements_paranoia
+label: 'Module paranoia'
+description: 'Requirements of the paranoia module'
+category: Requirements
+plugin_id: core_requirements
+result_class: null
+value_label: null
+value_type: no_value
+caching_time: 3600
+settings:
+  module: paranoia
+  exclude_keys: {  }
+thresholds:
+  type: none

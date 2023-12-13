@@ -3,3 +3,7 @@ services:
     class: Drupal\blog\Services\BlogService
     autowire: true
     arguments: ['@entity_type.manager']
+  blog.register:
+    class: Drupal\blog\Form\RegisterForm
+    autowire: true
+    arguments: ['@password'] 

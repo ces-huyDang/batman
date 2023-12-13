@@ -1,0 +1,22 @@
+<table class="table table-dark table-hover border border-white rounded">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Email</th>
+      <th scope="col">Username</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in data.users %}
+      <tr>
+        <th scope="row">{{ loop.index }}</th>
+        <td>{{ user.mail.value }}</td>
+        <td>{{ user.name.value }}</td>
+        <td>
+          <a class="btn bg-black text-white border border-white" href={{ "/user/edit/" ~ user.uid.value }}>Edit</td>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

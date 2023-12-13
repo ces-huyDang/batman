@@ -1,0 +1,23 @@
+uuid: b9c8739c-2e02-4075-92d2-e1fac445c991
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.best_movie_series.field_movies
+    - node.type.best_movie_series
+  module:
+    - user
+id: node.best_movie_series.teaser
+targetEntityType: node
+bundle: best_movie_series
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_movies: true
+  langcode: true

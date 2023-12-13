@@ -3,7 +3,7 @@
     <div class="card header bg-dark rounded-0">
       <div class="p-5 text-center text-white">{{ page.header }}</div>
     </div>
-    <div id="page-menu" class="menu menu-bg-light">
+    <div id="page-menu" class="menu menu-bg-light bottom-hr top-hr">
       <div>{{ page.primary_menu }}</div>
     </div>
     {% if page.featured %}
@@ -14,12 +14,12 @@
       </div>
     {% endif %}
   </div>
-    <div class="row bg-black">
+    <div class="row bg-black pt-4 pb-5">
       <div class="col-3">{{ page.sidebar_first }}</div>
       <div class="col-6">{{ page.content }}</div>
       <div class="col-3">{{ page.sidebar_second }}</div>
     </div>
-  <div class="row">
+  <div class="row top-hr">
     <div class="card footer bg-dark rounded-0">
       <div class="text-center text-white p-5">
         {{ page.footer }}

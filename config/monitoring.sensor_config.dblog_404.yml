@@ -1,0 +1,33 @@
+uuid: d2a6a635-2859-4def-bf47-1a4d0b19acb2
+langcode: en
+status: true
+dependencies:
+  module:
+    - dblog
+_core:
+  default_config_hash: SJO0Ogx9l4-wZA0t_GUGYJuMF4vP-sQgwl2Z2GQM9jY
+id: dblog_404
+label: 'Page not found errors'
+description: 'Page not found errors logged by watchdog'
+category: Watchdog
+plugin_id: dblog_404
+result_class: null
+value_label: 'Watchdog events'
+value_type: number
+caching_time: 3600
+settings:
+  table: watchdog
+  conditions:
+    -
+      field: type
+      value: 'page not found'
+  verbose_fields:
+    - location
+    - timestamp
+  time_interval_field: timestamp
+  time_interval_value: 86400
+  history_status: true
+thresholds:
+  type: exceeds
+  warning: 20
+  critical: 100

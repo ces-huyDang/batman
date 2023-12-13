@@ -1,6 +1,3 @@
-@import "./bootstrap.css";
-@import "./bootstrap.min.css";
-
 .block-center {
   margin-left: auto;
   margin-right: auto;
@@ -116,4 +113,9 @@ img {
 
 .quicktabs-loaded {
   color: white;
+}
+
+.description {
+  color: white;
+  font-size: small;
 }

@@ -1,9 +1,11 @@
-<?php declare(strict_types = 1);
+<?php
 
 /**
  * @file
  * Theme settings form for Lando Blog theme.
  */
+
+declare(strict_types = 1);
 
 use Drupal\Core\Form\FormState;
 

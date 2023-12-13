@@ -1,0 +1,39 @@
+{{ form.form_id }}
+{{ form.form_token }}
+{{ form.form_build_id }}
+<div class="card bg-dark border border-white">
+  <div class="card-body">
+    <a href={{ form['title'] ? "/user/list" : "/homepage" }} class="btn btn-sm bg-black float-start text-white border border-white">Back</a>
+    <div class="row col-12">
+      <h3 class="text-white text-center">{{ form['title'] ? form['title'] : "User Register" }}</h3>
+    </div>
+    <div class="row gap-3">
+      {{ form.email }}
+      {{ form.username }}
+      <div class="col-12">
+        <div class="row">
+          <div class="col-6">
+            {{ form.password }}</div>
+          <div class="col-6">
+            {{ form.password_confirm }}
+          </div>
+        </div>
+      </div>
+      {{ form.image }}
+      <div class="col-12">
+        <div class="row">
+          <div class="col-6">
+            {{ form.language }}</div>
+          <div class="col-6">
+            {{ form.timezone }}
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 text-center">
+          {{ form.actions }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

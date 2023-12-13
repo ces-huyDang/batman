@@ -41,7 +41,11 @@
   border-bottom: 1px solid #c7c8c9;
 }
 
-.movie-title>a {
+.top-hr {
+  border-top: 1px solid #c7c8c9;
+}
+
+.movie-title > a {
   color: white;
 }
 
@@ -52,4 +56,9 @@
 .wraping-image {
   float: left;
   margin-right: 10px;
+}
+
+.js-form-required::after {
+  content: " *";
+  color: red;
 }

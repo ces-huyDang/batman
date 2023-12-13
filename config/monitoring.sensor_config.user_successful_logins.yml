@@ -1,0 +1,36 @@
+uuid: c2c2e38f-7eb2-4f63-a520-22d55494514c
+langcode: en
+status: true
+dependencies:
+  module:
+    - dblog
+_core:
+  default_config_hash: 5reoxrgURDlFKZikCG06tdygaN63lGsQXwG-YZeEQE8
+id: user_successful_logins
+label: 'Successful user logins'
+description: 'Successful user logins by Watchdog'
+category: 'User activity'
+plugin_id: watchdog_aggregator
+result_class: null
+value_label: 'Login attempts'
+value_type: number
+caching_time: 3600
+settings:
+  table: watchdog
+  conditions:
+    -
+      field: type
+      value: user
+    -
+      field: message
+      value: 'Session opened for %name.'
+  verbose_fields:
+    - wid
+    - message
+    - variables
+    - timestamp
+  time_interval_field: timestamp
+  time_interval_value: 86400
+  history_status: true
+thresholds:
+  type: none

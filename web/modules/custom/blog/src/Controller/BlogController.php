@@ -29,10 +29,10 @@ class BlogController extends ControllerBase {
    * Constructs a new instance of the BlogService class.
    *
    * @param \Drupal\blog\Services\BlogService $blog_service
-   *   to use method from BlogService.
+   *   To use method from BlogService.
    */
   public function __construct(BlogService $blog_service) {
-    $this->$blogService = $blog_service;
+    $this->blogService = $blog_service;
   }
 
   /**
@@ -56,7 +56,7 @@ class BlogController extends ControllerBase {
    *   Arrays of Posts information.
    */
   public function blogs() {
-    $posts = $this->$blogService->getPostList();
+    $posts = $this->blogService->getPostList();
     return [
       '#theme' => 'blogs',
       '#data' => [
@@ -75,7 +75,7 @@ class BlogController extends ControllerBase {
    *   Arrays of Characters terms information.
    */
   public function characters() {
-    $terms = $this->$blogService->getTaxonomyTerms('characters');
+    $terms = $this->blogService->getTaxonomyTerms('characters');
     return new JsonResponse($terms);
   }
 
@@ -86,7 +86,7 @@ class BlogController extends ControllerBase {
    *   Arrays of images uri.
    */
   public function carousel() {
-    $images = $this->$blogService->getCarouselImagesUrl();
+    $images = $this->blogService->getCarouselImagesUrl();
     if (!isset($images)) {
       return new JsonResponse(['error' => 'Internal Server Error'], 500);
     }
@@ -103,7 +103,7 @@ class BlogController extends ControllerBase {
    *   Post with matched id.
    */
   public function details($nid) {
-    $post = $this->$blogService->getPostById($nid);
+    $post = $this->blogService->getPostById($nid);
     if (!isset($post)) {
       $message = 'Look like the post you looking for does not exists.';
       return [
@@ -137,7 +137,7 @@ class BlogController extends ControllerBase {
    *   Score info with matched id.
    */
   public function averageScore($nid) {
-    $score = $this->$blogService->getAverageScore($nid);
+    $score = $this->blogService->getAverageScore($nid);
     if (!isset($score)) {
       return new JsonResponse(['error' => 'Internal Server Error'], 500);
     }
@@ -166,8 +166,27 @@ class BlogController extends ControllerBase {
    *   Response an annoucement.
    */
   public function rate($score_info) {
-    $message = $this->$blogService->rating($score_info);
+    $message = $this->blogService->rating($score_info);
     return new JsonResponse($message);
+  }
+
+  /**
+   * Show Users list.
+   *
+   * @return array
+   *   List of user with info.
+   */
+  public function userList() {
+    $users = $this->blogService->getUserList();
+    return [
+      '#theme' => 'users_list',
+      '#data' => [
+        'users' => $users,
+      ],
+      '#attached' => [
+        'library' => ['blog/form'],
+      ],
+    ];
   }
 
 }

@@ -1,4 +1,11 @@
-<?php declare(strict_types = 1);
+<?php
+
+/**
+ * @file
+ * Provides hook for custom theme.
+ */
+
+declare(strict_types = 1);
 
 /**
  * @file
@@ -9,7 +16,8 @@
  * Implements hook_preprocess_HOOK() for html.html.twig.
  */
 function lando_blog_preprocess_html(array &$variables): void {
-  https://docs.docker.com/engine/install/https://docs.docker.com/engine/install/
+  // docs.docker.com/engine/install/https://docs.docker.com/engine/install/
+  https:
 }
 
 /**

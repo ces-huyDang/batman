@@ -1,0 +1,11 @@
+uuid: 1b9186a8-fd24-44d0-bc21-95b5fa25f7e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.best_movie_series
+id: node.best_movie_series
+target_entity_type_id: node
+target_bundle: best_movie_series
+default_langcode: site_default
+language_alterable: false

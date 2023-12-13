@@ -1,4 +1,4 @@
-<div class="container-fluid pb-5 pt-4">
+<div class="container-fluid">
   <div class="row">
     {% for post in data.posts|sort((a, b) => (b['is_featured'] <=> a['is_featured'])) %}
       <div class={{ post['is_featured'] is same as(true) ? "col-12" : "col-6" }}>

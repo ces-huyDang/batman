@@ -1,0 +1,18 @@
+uuid: 10ac71ee-fc53-4006-8a5e-4aa801eee72b
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Best Movie Series'
+type: best_movie_series
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

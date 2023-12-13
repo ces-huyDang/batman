@@ -59,8 +59,6 @@
 /web/sites/*/private
 /web/sites/*/settings.local.php
 /web/sites/*/services*.yml
-!/web/sites/*/services.pantheon.*.yml
-!/web/sites/*/services.yml
 
 /.editorconfig
 /.gitattributes

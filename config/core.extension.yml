@@ -38,17 +38,20 @@ module:
   media_library: 0
   menu_link_content: 0
   menu_ui: 0
+  monitoring: 0
   mysql: 0
   node: 0
   options: 0
   page_cache: 0
   paragraphs_type_permissions: 0
+  paranoia: 0
   path: 0
   path_alias: 0
   quicktabs: 0
   quicktabs_accordion: 0
   quicktabs_jqueryui: 0
   search: 0
+  seckit: 0
   security_review: 0
   shortcut: 0
   system: 0
@@ -60,6 +63,7 @@ module:
   twig_tweak: 0
   update: 0
   user: 0
+  user_register_form: 0
   views_ui: 0
   content_translation: 10
   views: 10

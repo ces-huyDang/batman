@@ -506,7 +506,7 @@ class BlogService {
    * Get all Movies with Category: Series .
    *
    * @return array
-   *   Movies list with category: Series
+   *   Movies list with category: Series.
    */
   public function getSeriesMovie() {
     $term_name = 'Series';
@@ -528,6 +528,21 @@ class BlogService {
       array_push($movies_info, $movie);
     }
     return $movies_info;
+  }
+
+  /**
+   * Get user list.
+   *
+   * @return array
+   *   List of user with info.
+   */
+  public function getUserList() {
+    $query = $this->entityTypeManager->getStorage('user')->getQuery();
+    $query->accessCheck(TRUE);
+    $query->condition('roles', 'Member');
+    $uids = $query->execute();
+    $users = User::loadMultiple($uids);
+    return $users;
   }
 
 }

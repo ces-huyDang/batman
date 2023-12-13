@@ -53,3 +53,27 @@ blog.rating:
     _controller: '\Drupal\blog\Controller\BlogController::rate'
   requirements:
     _permission: 'access JSON data'
+
+blog.user_register:
+  path: '/user/register'
+  defaults:
+    _title: 'Account Register'
+    _form: '\Drupal\blog\Form\RegisterForm'
+  requirements:
+    _permission: 'access blog content'
+
+blog.user_edit:
+  path: '/user/edit/{id}'
+  defaults:
+    _title: 'Account Editor'
+    _form: '\Drupal\blog\Form\RegisterForm'
+  requirements:
+    _permission: 'access blog content'
+
+blog.user_list:
+  path: '/user/list'
+  defaults:
+    _title: 'Users List'
+    _controller: '\Drupal\blog\Controller\BlogController::userList'
+  requirements:
+    _permission: 'access blog content'

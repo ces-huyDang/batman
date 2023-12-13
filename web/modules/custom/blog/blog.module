@@ -52,5 +52,14 @@ function blog_theme() {
         'data' => [],
       ],
     ],
+    'account_register_form' => [
+      'render element' => 'form',
+    ],
+    'users_list' => [
+      'template' => 'users-list',
+      'variables' => [
+        'data' => [],
+      ],
+    ],
   ];
 }

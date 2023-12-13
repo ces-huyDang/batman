@@ -1,0 +1,35 @@
+uuid: eff72f16-6a91-4f27-8daa-9eda17372cae
+langcode: en
+status: true
+dependencies:
+  module:
+    - dblog
+_core:
+  default_config_hash: 5lkI2p8oL0VZJrM3IzmiNAB9PuN--zENhoJtYXNBGuI
+id: dblog_event_severity_debug
+label: 'Severity Debug'
+description: 'Watchdog entries of severity Debug'
+category: Watchdog
+plugin_id: watchdog_aggregator
+result_class: null
+value_label: Events
+value_type: number
+caching_time: 900
+settings:
+  table: watchdog
+  conditions:
+    -
+      field: severity
+      value: '7'
+  verbose_fields:
+    - wid
+    - message
+    - variables
+    - timestamp
+  time_interval_field: timestamp
+  time_interval_value: 86400
+  history_status: true
+thresholds:
+  type: exceeds
+  warning: 20
+  critical: 50
